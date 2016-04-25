@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.net.URL?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="button.ControllerUserBioritm">
+    <children>
+
+        <Button fx:id="do_it" layoutX="225.0" layoutY="410.0" mnemonicParsing="false" text="Вычислить" />
+
+        <ComboBox fx:id="bd_month" layoutX="203.0" layoutY="147.0" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                    <String fx:value="10" />
+                    <String fx:value="11" />
+                    <String fx:value="12" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <ComboBox fx:id="bd_day" layoutX="89.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                    <String fx:value="10" />
+                    <String fx:value="11" />
+                    <String fx:value="12" />
+                    <String fx:value="13" />
+                    <String fx:value="14" />
+                    <String fx:value="15" />
+                    <String fx:value="16" />
+                    <String fx:value="17" />
+                    <String fx:value="18" />
+                    <String fx:value="19" />
+                    <String fx:value="20" />
+                    <String fx:value="21" />
+                    <String fx:value="22" />
+                    <String fx:value="23" />
+                    <String fx:value="24" />
+                    <String fx:value="25" />
+                    <String fx:value="26" />
+                    <String fx:value="27" />
+                    <String fx:value="28" />
+                    <String fx:value="29" />
+                    <String fx:value="30" />
+                    <String fx:value="31" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="bd_year" layoutX="372.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1900" />
+                    <String fx:value="1901" />
+                    <String fx:value="1902" />
+                    <String fx:value="1903" />
+                    <String fx:value="1904" />
+                    <String fx:value="1905" />
+                    <String fx:value="1906" />
+                    <String fx:value="1907" />
+                    <String fx:value="1908" />
+                    <String fx:value="1909" />
+                    <String fx:value="1910" />
+                    <String fx:value="1911" />
+                    <String fx:value="1912" />
+                    <String fx:value="1913" />
+                    <String fx:value="1914" />
+                    <String fx:value="1915" />
+                    <String fx:value="1916" />
+                    <String fx:value="1917" />
+                    <String fx:value="1918" />
+                    <String fx:value="1919" />
+                    <String fx:value="1920" />
+                    <String fx:value="1921" />
+                    <String fx:value="1922" />
+                    <String fx:value="1923" />
+                    <String fx:value="1924" />
+                    <String fx:value="1925" />
+                    <String fx:value="1926" />
+                    <String fx:value="1927" />
+                    <String fx:value="1928" />
+                    <String fx:value="1929" />
+                    <String fx:value="1930" />
+                    <String fx:value="1931" />
+                    <String fx:value="1932" />
+                    <String fx:value="1933" />
+                    <String fx:value="1934" />
+                    <String fx:value="1935" />
+                    <String fx:value="1936" />
+                    <String fx:value="1937" />
+                    <String fx:value="1938" />
+                    <String fx:value="1939" />
+                    <String fx:value="1940" />
+                    <String fx:value="1941" />
+                    <String fx:value="1942" />
+                    <String fx:value="1943" />
+                    <String fx:value="1944" />
+                    <String fx:value="1945" />
+                    <String fx:value="1946" />
+                    <String fx:value="1947" />
+                    <String fx:value="1948" />
+                    <String fx:value="1949" />
+                    <String fx:value="1950" />
+                    <String fx:value="1951" />
+                    <String fx:value="1952" />
+                    <String fx:value="1953" />
+                    <String fx:value="1954" />
+                    <String fx:value="1955" />
+                    <String fx:value="1956" />
+                    <String fx:value="1957" />
+                    <String fx:value="1958" />
+                    <String fx:value="1959" />
+                    <String fx:value="1960" />
+                    <String fx:value="1961" />
+                    <String fx:value="1962" />
+                    <String fx:value="1963" />
+                    <String fx:value="1964" />
+                    <String fx:value="1965" />
+                    <String fx:value="1966" />
+                    <String fx:value="1967" />
+                    <String fx:value="1968" />
+                    <String fx:value="1969" />
+                    <String fx:value="1970" />
+                    <String fx:value="1971" />
+                    <String fx:value="1972" />
+                    <String fx:value="1973" />
+                    <String fx:value="1974" />
+                    <String fx:value="1975" />
+                    <String fx:value="1976" />
+                    <String fx:value="1977" />
+                    <String fx:value="1978" />
+                    <String fx:value="1979" />
+                    <String fx:value="1980" />
+                    <String fx:value="1981" />
+                    <String fx:value="1982" />
+                    <String fx:value="1983" />
+                    <String fx:value="1984" />
+                    <String fx:value="1985" />
+                    <String fx:value="1986" />
+                    <String fx:value="1987" />
+                    <String fx:value="1988" />
+                    <String fx:value="1989" />
+                    <String fx:value="1990" />
+                    <String fx:value="1991" />
+                    <String fx:value="1992" />
+                    <String fx:value="1993" />
+                    <String fx:value="1994" />
+                    <String fx:value="1995" />
+                    <String fx:value="1996" />
+                    <String fx:value="1997" />
+                    <String fx:value="1998" />
+                    <String fx:value="1999" />
+                    <String fx:value="2000" />
+                    <String fx:value="2001" />
+                    <String fx:value="2002" />
+                    <String fx:value="2003" />
+                    <String fx:value="2004" />
+                    <String fx:value="2005" />
+                    <String fx:value="2006" />
+                    <String fx:value="2007" />
+                    <String fx:value="2008" />
+                    <String fx:value="2009" />
+                    <String fx:value="2010" />
+                    <String fx:value="2011" />
+                    <String fx:value="2012" />
+                    <String fx:value="2013" />
+                    <String fx:value="2014" />
+                    <String fx:value="2015" />
+                    <String fx:value="2016" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="month" layoutX="203.0" layoutY="284.0" prefWidth="150.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                    <String fx:value="10" />
+                    <String fx:value="11" />
+                    <String fx:value="12" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="day" layoutX="89.0" layoutY="284.0" prefHeight="31.0" prefWidth="94.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1" />
+                    <String fx:value="2" />
+                    <String fx:value="3" />
+                    <String fx:value="4" />
+                    <String fx:value="5" />
+                    <String fx:value="6" />
+                    <String fx:value="7" />
+                    <String fx:value="8" />
+                    <String fx:value="9" />
+                    <String fx:value="10" />
+                    <String fx:value="11" />
+                    <String fx:value="12" />
+                    <String fx:value="13" />
+                    <String fx:value="14" />
+                    <String fx:value="15" />
+                    <String fx:value="16" />
+                    <String fx:value="17" />
+                    <String fx:value="18" />
+                    <String fx:value="19" />
+                    <String fx:value="20" />
+                    <String fx:value="21" />
+                    <String fx:value="22" />
+                    <String fx:value="23" />
+                    <String fx:value="24" />
+                    <String fx:value="25" />
+                    <String fx:value="26" />
+                    <String fx:value="27" />
+                    <String fx:value="28" />
+                    <String fx:value="29" />
+                    <String fx:value="30" />
+                    <String fx:value="31" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="year" layoutX="378.0" layoutY="284.0" maxHeight="50.0" prefHeight="31.0" prefWidth="94.0">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="1900" />
+                    <String fx:value="1901" />
+                    <String fx:value="1902" />
+                    <String fx:value="1903" />
+                    <String fx:value="1904" />
+                    <String fx:value="1905" />
+                    <String fx:value="1906" />
+                    <String fx:value="1907" />
+                    <String fx:value="1908" />
+                    <String fx:value="1909" />
+                    <String fx:value="1910" />
+                    <String fx:value="1911" />
+                    <String fx:value="1912" />
+                    <String fx:value="1913" />
+                    <String fx:value="1914" />
+                    <String fx:value="1915" />
+                    <String fx:value="1916" />
+                    <String fx:value="1917" />
+                    <String fx:value="1918" />
+                    <String fx:value="1919" />
+                    <String fx:value="1920" />
+                    <String fx:value="1921" />
+                    <String fx:value="1922" />
+                    <String fx:value="1923" />
+                    <String fx:value="1924" />
+                    <String fx:value="1925" />
+                    <String fx:value="1926" />
+                    <String fx:value="1927" />
+                    <String fx:value="1928" />
+                    <String fx:value="1929" />
+                    <String fx:value="1930" />
+                    <String fx:value="1931" />
+                    <String fx:value="1932" />
+                    <String fx:value="1933" />
+                    <String fx:value="1934" />
+                    <String fx:value="1935" />
+                    <String fx:value="1936" />
+                    <String fx:value="1937" />
+                    <String fx:value="1938" />
+                    <String fx:value="1939" />
+                    <String fx:value="1940" />
+                    <String fx:value="1941" />
+                    <String fx:value="1942" />
+                    <String fx:value="1943" />
+                    <String fx:value="1944" />
+                    <String fx:value="1945" />
+                    <String fx:value="1946" />
+                    <String fx:value="1947" />
+                    <String fx:value="1948" />
+                    <String fx:value="1949" />
+                    <String fx:value="1950" />
+                    <String fx:value="1951" />
+                    <String fx:value="1952" />
+                    <String fx:value="1953" />
+                    <String fx:value="1954" />
+                    <String fx:value="1955" />
+                    <String fx:value="1956" />
+                    <String fx:value="1957" />
+                    <String fx:value="1958" />
+                    <String fx:value="1959" />
+                    <String fx:value="1960" />
+                    <String fx:value="1961" />
+                    <String fx:value="1962" />
+                    <String fx:value="1963" />
+                    <String fx:value="1964" />
+                    <String fx:value="1965" />
+                    <String fx:value="1966" />
+                    <String fx:value="1967" />
+                    <String fx:value="1968" />
+                    <String fx:value="1969" />
+                    <String fx:value="1970" />
+                    <String fx:value="1971" />
+                    <String fx:value="1972" />
+                    <String fx:value="1973" />
+                    <String fx:value="1974" />
+                    <String fx:value="1975" />
+                    <String fx:value="1976" />
+                    <String fx:value="1977" />
+                    <String fx:value="1978" />
+                    <String fx:value="1979" />
+                    <String fx:value="1980" />
+                    <String fx:value="1981" />
+                    <String fx:value="1982" />
+                    <String fx:value="1983" />
+                    <String fx:value="1984" />
+                    <String fx:value="1985" />
+                    <String fx:value="1986" />
+                    <String fx:value="1987" />
+                    <String fx:value="1988" />
+                    <String fx:value="1989" />
+                    <String fx:value="1990" />
+                    <String fx:value="1991" />
+                    <String fx:value="1992" />
+                    <String fx:value="1993" />
+                    <String fx:value="1994" />
+                    <String fx:value="1995" />
+                    <String fx:value="1996" />
+                    <String fx:value="1997" />
+                    <String fx:value="1998" />
+                    <String fx:value="1999" />
+                    <String fx:value="2000" />
+                    <String fx:value="2001" />
+                    <String fx:value="2002" />
+                    <String fx:value="2003" />
+                    <String fx:value="2004" />
+                    <String fx:value="2005" />
+                    <String fx:value="2006" />
+                    <String fx:value="2007" />
+                    <String fx:value="2008" />
+                    <String fx:value="2009" />
+                    <String fx:value="2010" />
+                    <String fx:value="2011" />
+                    <String fx:value="2012" />
+                    <String fx:value="2013" />
+                    <String fx:value="2014" />
+                    <String fx:value="2015" />
+                    <String fx:value="2016" />
+                    <String fx:value="2017" />
+                    <String fx:value="2018" />
+                    <String fx:value="2019" />
+                    <String fx:value="2020" />
+                    <String fx:value="2021" />
+                    <String fx:value="2022" />
+                    <String fx:value="2023" />
+                    <String fx:value="2024" />
+                    <String fx:value="2025" />
+                    <String fx:value="2026" />
+                    <String fx:value="2027" />
+                    <String fx:value="2028" />
+                    <String fx:value="2029" />
+                    <String fx:value="2030" />
+                    <String fx:value="2031" />
+                    <String fx:value="2032" />
+                    <String fx:value="2033" />
+                    <String fx:value="2034" />
+                    <String fx:value="2035" />
+                    <String fx:value="2036" />
+                    <String fx:value="2037" />
+                    <String fx:value="1938" />
+                    <String fx:value="2039" />
+                    <String fx:value="2040" />
+                    <String fx:value="2041" />
+                    <String fx:value="2042" />
+                    <String fx:value="2043" />
+                    <String fx:value="2044" />
+                    <String fx:value="2045" />
+                    <String fx:value="2046" />
+                    <String fx:value="2047" />
+                    <String fx:value="2048" />
+                    <String fx:value="2049" />
+                    <String fx:value="2050" />
+                    <String fx:value="1951" />
+                    <String fx:value="2052" />
+                    <String fx:value="2053" />
+                    <String fx:value="2054" />
+                    <String fx:value="2055" />
+                    <String fx:value="2056" />
+                    <String fx:value="2057" />
+                    <String fx:value="2058" />
+                    <String fx:value="2059" />
+                    <String fx:value="2060" />
+                    <String fx:value="2061" />
+                    <String fx:value="2062" />
+                    <String fx:value="2063" />
+                    <String fx:value="2064" />
+                    <String fx:value="2065" />
+                    <String fx:value="2066" />
+                    <String fx:value="2067" />
+                    <String fx:value="2068" />
+                    <String fx:value="2069" />
+                    <String fx:value="2070" />
+                    <String fx:value="2071" />
+                    <String fx:value="2072" />
+                    <String fx:value="2073" />
+                    <String fx:value="2074" />
+                    <String fx:value="2075" />
+                    <String fx:value="2076" />
+                    <String fx:value="2077" />
+                    <String fx:value="2078" />
+                    <String fx:value="2079" />
+                    <String fx:value="2080" />
+                    <String fx:value="2081" />
+                    <String fx:value="2082" />
+                    <String fx:value="2083" />
+                    <String fx:value="2084" />
+                    <String fx:value="2085" />
+                    <String fx:value="2086" />
+                    <String fx:value="2087" />
+                    <String fx:value="2088" />
+                    <String fx:value="2089" />
+                    <String fx:value="2090" />
+                    <String fx:value="2091" />
+                    <String fx:value="2092" />
+                    <String fx:value="2093" />
+                    <String fx:value="2094" />
+                    <String fx:value="2095" />
+                    <String fx:value="2096" />
+                    <String fx:value="2097" />
+                    <String fx:value="2098" />
+                    <String fx:value="2099" />
+                    <String fx:value="2100" />
+                    <String fx:value="2101" />
+                    <String fx:value="2102" />
+                    <String fx:value="2103" />
+                    <String fx:value="2104" />
+                    <String fx:value="2105" />
+                    <String fx:value="2106" />
+                    <String fx:value="2107" />
+                    <String fx:value="2108" />
+                    <String fx:value="2109" />
+                    <String fx:value="2110" />
+                    <String fx:value="2111" />
+                    <String fx:value="2112" />
+                    <String fx:value="2113" />
+                    <String fx:value="2114" />
+                    <String fx:value="2115" />
+                    <String fx:value="2116" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label layoutX="133.0" layoutY="82.0" text="Введите дату рождения:" />
+        <Label layoutX="133.0" layoutY="224.0" text="Введите дату вычисления биоритма:" />
+        <Button fx:id="exit" layoutX="505.0" layoutY="253.0" mnemonicParsing="false" text="выйти" />
+        <Label fx:id="error" layoutX="255.0" layoutY="346.0" />
+      <Label fx:id="data" layoutX="499.0" layoutY="34.0" text="Label" />
+      <Label layoutX="502.0" layoutY="66.0" prefHeight="129.0" prefWidth="94.0" text="дата последнего входа:" textAlignment="CENTER" wrapText="true" />
+      <Label fx:id="user" layoutX="499.0" layoutY="203.0" prefHeight="21.0" prefWidth="85.0" text="Label" />
+    </children>
+
+</AnchorPane>

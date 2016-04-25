@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basis.ControllerMenu">
+    <items>
+        <AnchorPane prefHeight="598.0" prefWidth="232.0">
+            <children>
+                <Button fx:id="bioritm" layoutX="5.0" layoutY="41.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Биоритмы" />
+                <Button fx:id="what" layoutX="5.0" layoutY="152.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Что такое биоритмы?" />
+                <Button fx:id="copatibility" layoutX="5.0" layoutY="262.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Совместимость" />
+                <Button fx:id="settings" layoutX="5.0" layoutY="368.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Настройки" />
+                <Button fx:id="help" layoutX="3.0" layoutY="486.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Помощь" />
+            </children></AnchorPane>
+        <AnchorPane>
+            <children>
+
+            </children></AnchorPane>
+    </items>
+
+
+</SplitPane>

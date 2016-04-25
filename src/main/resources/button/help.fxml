@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="button.ControllerHelp">
+    <children>
+        <Button fx:id="help" layoutX="212.0" layoutY="272.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="177.0" text="Кнопка тех.поддержки" />
+        <Button fx:id="what" layoutX="212.0" layoutY="160.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="177.0" text="Как пользоваться?" />
+    </children>
+
+</AnchorPane>

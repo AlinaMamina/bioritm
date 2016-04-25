@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.ControllerRegistration">
+    <children>
+
+        <TextField fx:id="login" layoutX="164.0" layoutY="143.0" />
+        <TextField fx:id="birthday" layoutX="164.0" layoutY="260.0" />
+        <Button fx:id="do_it" layoutX="107.0" layoutY="320.0" mnemonicParsing="false" text="Зарегестрироваться" />
+        <Label layoutX="30.0" layoutY="148.0" text="Логин" />
+        <Label layoutX="30.0" layoutY="205.0" text="Пароль" />
+        <Label layoutX="30.0" layoutY="265.0" text="Дата рождения" />
+        <Label layoutX="32.0" layoutY="34.0" text="Введите:" />
+      <PasswordField fx:id="password" layoutX="164.0" layoutY="200.0" />
+    </children>
+</AnchorPane>
