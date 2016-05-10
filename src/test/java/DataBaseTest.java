@@ -7,24 +7,21 @@ import org.junit.Assert;
 import java.io.File;
 import java.sql.SQLException;
 
-
 public class DataBaseTest {
     private DataBase d;
     private User u;
 
     public DataBaseTest() {
-        this.d = d;
-        this.u = u;
+        File file;
+        if (!(file = new File("src\\main\\resources\\testbase.mv.db")).exists())
+            throw new RuntimeException("File not found!");
+        String str = file.getAbsolutePath();
+        this.d = new DataBase(str.replace(".mv.db", ""));
+        this.u = new User();
     }
 
     @Test
     public void test() throws SQLException, ClassNotFoundException {
-        //File file;
-        //if (!(file = new File("src\\main\\resources\\testbase.mv.db")).exists())
-        //    throw new RuntimeException("File not found!");
-        //String str = file.getAbsolutePath();
-        //d = new DataBase(str.replace(".mv.db",""));
-        //u = new User();
 
         u.login = "Veron505";
         u.password = "12345";
