@@ -33,8 +33,7 @@ public class ControllerResultCop implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         back.setOnAction(event -> baseButton.showCopatibility());
     }
-
-    public void setMain(Main main) {
+   public void setMain(Main main) {
         this.main = main;
 
     }

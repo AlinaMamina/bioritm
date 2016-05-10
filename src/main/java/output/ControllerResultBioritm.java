@@ -71,7 +71,7 @@ public class ControllerResultBioritm implements Initializable {
             try {
                 main.showTable(period.getValue());
             } catch (IOException e) {
-                e.printStackTrace();
+                main.showError(e.getMessage());
             } catch (NullPointerException e) {
                 main.showError("Введите период");
 

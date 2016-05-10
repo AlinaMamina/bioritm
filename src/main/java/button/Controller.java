@@ -2,6 +2,7 @@ package button;
 
 import basis.BaseButton;
 import calculation.CalcBiorithms;
+import calculation.Conversion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
@@ -36,34 +38,44 @@ public class Controller implements Initializable {
     @FXML
     private Label error;
     private Main main;
-    private CalcBiorithms bioritm;
+    private Conversion conversion;
+
+
 
     public void initialize(URL url, ResourceBundle rb) {
 
-
-        do_it.setOnAction(event -> {
-            try {
-                main.showResult(bd_day.getValue(), bd_month.getValue(), bd_year.getValue(), day.getValue(), month.getValue(), year.getValue());
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (NullPointerException e) {
-                main.showError("Введите дату");
-
-            }
-        });
-
+        do_it.setOnAction(event->result());
         signIn.setOnAction(event -> main.showSignInDialog());
         registr.setOnAction(event -> main.showRegistrationDialog());
     }
 
+    private void result()
+    {
+        try {
+            GregorianCalendar birthday = conversion.toCalendar(bd_day.getValue(), bd_month.getValue(), bd_year.getValue());
+            GregorianCalendar data = conversion.toCalendar(day.getValue(), month.getValue(), year.getValue());
+            if (birthday.after(data)) {
+                main.showError("дата введена неверно");
+                return;
+            }
+            main.showResult(birthday,data);
+        }catch (NullPointerException e) {
+            main.showError("Введите дату");
+
+        }catch (IllegalArgumentException e) {
+            main.showError("Введите другую дату");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public void setMain(Main main) {
         this.main = main;
 
 
     }
-
-    public void setBioritm(CalcBiorithms bioritm) {
-        this.bioritm = bioritm;
+    public void setConversion(Conversion conversion) {
+        this.conversion = conversion;
 
     }
+
 }

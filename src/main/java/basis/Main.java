@@ -54,7 +54,7 @@ public class Main extends Application {
         if (!(file = new File("src\\main\\resources\\testbase.mv.db")).exists())
             throw new RuntimeException("File not found!");
         String str = file.getAbsolutePath();
-        d = new DataBase(str.replace(".mv.db",""));
+        d = new DataBase(str.replace(".mv.db", ""));
         initRootLayout();
 
     }
@@ -78,8 +78,9 @@ public class Main extends Application {
 
             Controller controller = loader_bio.getController();
             controller.setMain(this);
+            controller.setConversion(conversion);
             rootLayout.getItems().add(2, BioritmLayout);
-            baseButton = new BaseButton(this.primaryStage, rootLayout, this);
+            baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion);
 
             ControllerMenu controller_menu = loader.getController();
             controller_menu.setMain(baseButton);
@@ -108,33 +109,32 @@ public class Main extends Application {
     }
 
 
-    public void showResult(Object s1, Object s2, Object s3, Object s4, Object s5, Object s6) throws IOException, NullPointerException {
+    public void showResult(GregorianCalendar data1, GregorianCalendar data2) throws IOException, NullPointerException {
+        bioritm.calcResult(1, data2, data1);
+        Double[][] result = bioritm.getResult();
 
-        GregorianCalendar data1 = conversion.toCalendar(s1, s2, s3);
-        GregorianCalendar data2 = conversion.toCalendar(s4, s5, s6);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/result/resultBioritm.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
         rootLayout.getItems().set(2, Layout);
-        bioritm.calcResult(1, data1, data2);
-        Double[][] result = bioritm.getResult();
+
+
         ControllerResultBioritm controller = loader.getController();
         controller.setBioritm(result);
         controller.setMain(this);
         controller.setBaseButton(baseButton);
-      //  controller.paintGrafik(bioritm);
     }
 
     public void showResult() throws IOException, NullPointerException {
 
-
+        Double[][] result = bioritm.getResult();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/result/resultBioritm.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
         rootLayout.getItems().set(2, Layout);
-        Double[][] result = bioritm.getResult();
+
         ControllerResultBioritm controller = loader.getController();
         controller.setBioritm(result);
         controller.setBaseButton(baseButton);
@@ -142,15 +142,14 @@ public class Main extends Application {
 
     }
 
-    public void showResultCopatibility(Object s1, Object s2, Object s3, Object s4, Object s5, Object s6) throws IOException, NullPointerException {
+    public void showResultCopatibility(GregorianCalendar bd1, GregorianCalendar bd2) throws IOException, NullPointerException {
 
-        GregorianCalendar bd1 = conversion.toCalendar(s1, s2, s3);
-        GregorianCalendar bd2 = conversion.toCalendar(s4, s5, s6);
+        Double[] result = compatibility.calcCompatibility(bd1, bd2);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("/result/resultCopatibility.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
-        Double[] result = compatibility.calcCompatibility(bd1, bd2);
+
         rootLayout.getItems().set(2, Layout);
 
         ControllerResultCop controller = loader.getController();

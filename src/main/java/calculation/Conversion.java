@@ -5,11 +5,11 @@ import java.util.GregorianCalendar;
 
 public class Conversion {
 
-    public  GregorianCalendar toCalendar(Object day, Object month, Object year) throws NullPointerException
+    public  GregorianCalendar toCalendar(Object day, Object month, Object year) throws NullPointerException,IllegalArgumentException
     {
         GregorianCalendar data = new GregorianCalendar();
-        data.set(Integer.valueOf(month.toString()),Integer.valueOf(year.toString()),Integer.valueOf(day.toString()));
-
+        data.setLenient(false);
+        data.set(Integer.valueOf(year.toString()),Integer.valueOf(month.toString()),Integer.valueOf(day.toString()));
         return  data;
     }
 

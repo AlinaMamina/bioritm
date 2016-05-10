@@ -3,6 +3,7 @@ package button;
 import basis.BaseButton;
 import basis.Main;
 import calculation.CalcBiorithms;
+import calculation.Conversion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
 
@@ -40,12 +42,15 @@ public class ControllerUserBioritm implements Initializable {
 
     private Main main;
     private BaseButton baseButton;
+    private Conversion conversion;
 
     public void initialize(URL url, ResourceBundle rb) {
 
         do_it.setOnAction(event -> {
             try {
-                main.showResult(bd_day.getValue(), bd_month.getValue(), bd_year.getValue(), day.getValue(), month.getValue(), year.getValue());
+                GregorianCalendar birthday = conversion.toCalendar(bd_day.getValue(), bd_month.getValue(), bd_year.getValue());
+                GregorianCalendar data = conversion.toCalendar(day.getValue(), month.getValue(), year.getValue());
+                main.showResult(birthday,data);
             } catch (IOException e) {
                 error.setText("Введите дату!");
             }
@@ -70,6 +75,10 @@ public class ControllerUserBioritm implements Initializable {
 
     public void setbaseButton(BaseButton baseButton) {
         this.baseButton = baseButton;
+
+    }
+    public void setConversion(Conversion conversion) {
+        this.conversion= conversion;
 
     }
 }

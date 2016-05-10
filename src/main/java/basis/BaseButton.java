@@ -4,6 +4,7 @@ import button.Controller;
 import button.ControllerCopatibility;
 import button.ControllerHelp;
 import button.ControllerSettings;
+import calculation.Conversion;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
@@ -18,11 +19,13 @@ public class BaseButton {
     private Stage primaryStage;
     private SplitPane rootLayout;
     private Main main;
+    private Conversion conversion;
 
-    public BaseButton(Stage primaryStage, SplitPane rootLayout, Main main) {
+    public BaseButton(Stage primaryStage, SplitPane rootLayout, Main main, Conversion conversion) {
         this.primaryStage = primaryStage;
         this.rootLayout = rootLayout;
         this.main = main;
+        this.conversion = conversion;
     }
 
     public void showBioritm() {
@@ -35,7 +38,7 @@ public class BaseButton {
 
             Controller controller = loader.getController();
             controller.setMain(main);
-
+            controller.setConversion(conversion);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,6 +55,7 @@ public class BaseButton {
 
             ControllerCopatibility controller = loader.getController();
             controller.setMain(main);
+            controller.setConversion(conversion);
 
         } catch (IOException e) {
             e.printStackTrace();

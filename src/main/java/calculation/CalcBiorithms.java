@@ -1,5 +1,6 @@
 package calculation;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.lang.Math;
@@ -97,13 +98,10 @@ public class CalcBiorithms {
     }
 
 
-    private int countPeriod(GregorianCalendar data, GregorianCalendar birthday) {
+    private int countPeriod(GregorianCalendar data, GregorianCalendar birthday)  {
         int period = 0;
         int year;
-        GregorianCalendar day;
-        if (data.after(birthday))
-            day = birthday;
-        else day = data;
+        GregorianCalendar day = birthday;
 
         period = data.get(Calendar.DAY_OF_YEAR) - birthday.get(Calendar.DAY_OF_YEAR);//разница между днями
 
