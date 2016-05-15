@@ -121,9 +121,9 @@ public class Main extends Application {
 
 
         ControllerResultBioritm controller = loader.getController();
+        controller.setClass(conversion,baseButton,this);
         controller.setBioritm(result);
-        controller.setMain(this);
-        controller.setBaseButton(baseButton);
+        controller.paintGrafik(bioritm);
     }
 
     public void showResult() throws IOException, NullPointerException {
@@ -136,9 +136,9 @@ public class Main extends Application {
         rootLayout.getItems().set(2, Layout);
 
         ControllerResultBioritm controller = loader.getController();
+        controller.setClass(conversion,baseButton,this);
         controller.setBioritm(result);
-        controller.setBaseButton(baseButton);
-        controller.setMain(this);
+        controller.paintGrafik(bioritm);
 
     }
 

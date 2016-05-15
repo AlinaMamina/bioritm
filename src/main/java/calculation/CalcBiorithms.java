@@ -29,7 +29,7 @@ public class CalcBiorithms {
         return (Math.sin(2 * Math.PI * period / phaseIntellect)) * 100;
     }
 
-    private double getAllBiorhythms(int period) {
+    public double getAllBiorhythms(int period) {
         return (getIntellectualBiorhythms(period) + getPhysicalBiorhythms(period) + getEmotionalBiorhythms(period)) / 3;
     }
 

@@ -49,10 +49,10 @@
         <Button fx:id="do_it" layoutX="380.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Вычислить" />
         <LineChart fx:id="grafik" horizontalGridLinesVisible="false" layoutX="-3.0" layoutY="23.0" prefHeight="272.0" prefWidth="324.0">
             <xAxis>
-                <NumberAxis label="x" tickUnit="1" />
+                <CategoryAxis fx:id="x_area" label="x"  />
             </xAxis>
             <yAxis>
-                <NumberAxis label="y" tickUnit="1" />
+                <NumberAxis label="y" tickUnit="1"/>
             </yAxis>
         </LineChart>
         <Button fx:id="save" layoutX="135.0" layoutY="532.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Сохранить" />

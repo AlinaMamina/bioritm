@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <SplitPane dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basis.ControllerMenu">
     <items>
-        <AnchorPane prefHeight="598.0" prefWidth="232.0">
+        <AnchorPane SplitPane.resizableWithParent="false">
             <children>
-                <Button fx:id="bioritm" layoutX="5.0" layoutY="41.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Биоритмы" />
-                <Button fx:id="what" layoutX="5.0" layoutY="152.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Что такое биоритмы?" />
-                <Button fx:id="copatibility" layoutX="5.0" layoutY="262.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Совместимость" />
-                <Button fx:id="settings" layoutX="5.0" layoutY="368.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Настройки" />
-                <Button fx:id="help" layoutX="3.0" layoutY="486.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="164.0" text="Помощь" />
+                <Button fx:id="bioritm" layoutX="5.0" layoutY="41.0" mnemonicParsing="false" text="Биоритмы" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="41.0" />
+                <Button fx:id="what" layoutX="5.0" layoutY="152.0" mnemonicParsing="false" text="Что такое биоритмы?" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                <Button fx:id="copatibility" layoutX="5.0" layoutY="262.0" mnemonicParsing="false" text="Совместимость" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                <Button fx:id="settings" layoutX="5.0" layoutY="368.0" mnemonicParsing="false" text="Настройки" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+                <Button fx:id="help" layoutX="3.0" layoutY="486.0" mnemonicParsing="false" text="Помощь" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
             </children></AnchorPane>
         <AnchorPane>
             <children>

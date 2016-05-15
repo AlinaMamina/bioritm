@@ -2,6 +2,7 @@ package output;
 
 import basis.BaseButton;
 import calculation.CalcBiorithms;
+import calculation.Conversion;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -45,8 +46,10 @@ public class ControllerResultBioritm implements Initializable {
     @FXML
     private Label e_info;
     @FXML
-    LineChart<Calendar, Double> grafik;
-
+    LineChart<String, Double> grafik;
+    @FXML
+    CategoryAxis x_area;
+    private Conversion conversion;
     private Main main;
     private BaseButton baseButton;
     final String[] info_p = {"Наблюдается хорошее физическое и физиологическое состояние," +
@@ -85,51 +88,59 @@ public class ControllerResultBioritm implements Initializable {
     }
 
     public void paintGrafik(CalcBiorithms bioritm) {
-        List<Calendar> x = new ArrayList<>();
+        List<String> x = new ArrayList<>();
         List<Integer> period = new ArrayList<>();
-        Calendar data = bioritm.getData()[0];
+        GregorianCalendar[] data = new GregorianCalendar[1];
+        data[0]= bioritm.getData()[0];
         int p = bioritm.getPeriod();
+
+        x_area.setLabel("Дата");
 
         for (int i = 0; i < 30; i++)
         {
-            data.add(Calendar.DATE, 1);
-            x.add(i, data);
+
+            String[] str = conversion.dataToString(data, 1);
+            x.add(i, str[0]);
+            data[0].add(Calendar.DATE, 1);
             period.add(i, p+i);
         }
 
 
+        Function<Integer, Double> calc1 = i -> bioritm.getPhysicalBiorhythms(i);
+        Function<Integer, Double> calc2 = i -> bioritm.getEmotionalBiorhythms(i);
+        Function<Integer, Double> calc3 = i -> bioritm.getIntellectualBiorhythms(i);
+        Function<Integer, Double> calc4 = i -> bioritm.getAllBiorhythms(i);
 
-         Function<Integer, Double> calc1 = i -> bioritm.getPhysicalBiorhythms(i);
-        // Function<Integer, Double> calc2 = i -> bioritm.getEmotionalBiorhythms(i);
-       //  Function<Integer, Double> calc3 = i -> bioritm.getIntellectualBiorhythms(i);
-         ObservableList<XYChart.Series<Calendar, Double>> data1 = FXCollections.observableArrayList();
-       // ObservableList<XYChart.Series<Integer, Double>> data2 = FXCollections.observableArrayList();
-       // ObservableList<XYChart.Series<Integer, Double>> data3 = FXCollections.observableArrayList();
+        XYChart.Series<String, Double> series1 = new XYChart.Series<>();
+        XYChart.Series<String, Double> series2 = new XYChart.Series<>();
+        XYChart.Series<String, Double> series3 = new XYChart.Series<>();
+        XYChart.Series<String, Double> series4 = new XYChart.Series<>();
 
-            XYChart.Series<Calendar, Double> series1 = new XYChart.Series<>();
-      //  XYChart.Series<Integer, Double> series2 = new XYChart.Series<>();
-      //  XYChart.Series<Integer, Double> series3 = new XYChart.Series<>();
-            for (Integer i : period) {
-                series1.getData().add(new XYChart.Data(i, calc1.apply(i)));
-         //       series2.getData().add(new XYChart.Data(i, calc2.apply(i)));
-         //       series3.getData().add(new XYChart.Data(i, calc3.apply(i)));
-            }
+        for (Integer i : period) {
+            period.indexOf(i);
 
-            data1.add(series1);
-      //  data2.add(series2);
-     //   data3.add(series3);
+            series1.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc1.apply(i)));
+            series2.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc2.apply(i)));
+            series3.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc3.apply(i)));
+            series4.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc4.apply(i)));
+        }
 
+        series1.setName("phys");
+        series2.setName(("emotion"));
+        series3.setName(("intel"));
+        series4.setName(("all"));
 
 
-        grafik.setData(data1);
-       // grafik.setData(data2);
-        //grafik.setData(data3);
+        grafik.getData().addAll(series1,series2,series3,series4);
+
+
     }
 
 
 
-
-    public void setMain(Main main) {
+    public void setClass (Conversion conversion,BaseButton baseButton,Main main) {
+        this.conversion = conversion;
+        this.baseButton = baseButton;
         this.main = main;
 
     }
@@ -165,7 +176,5 @@ public class ControllerResultBioritm implements Initializable {
             i_info.setText(info_i[2]);
     }
 
-    public void setBaseButton(BaseButton baseButton) {
-        this.baseButton = baseButton;
-    }
+
 }
