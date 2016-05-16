@@ -31,7 +31,7 @@ public class DataBase {
         conn.close();
     }
 
-    public boolean HasUser(User u) throws SQLException {
+    public boolean HasLogin(User u) throws SQLException {
 
         rs = stmt.executeQuery("select * from PersonData \n" +
                 "WHERE pd_login = '" + u.login + "'" +
@@ -40,7 +40,7 @@ public class DataBase {
         return rs.next();
     }
 
-    public boolean HasLogin(User u) throws SQLException {
+    public boolean HasUser(User u) throws SQLException {
 
         rs = stmt.executeQuery("select * from PersonData \n" +
                 "WHERE pd_login = '" + u.login + "'");

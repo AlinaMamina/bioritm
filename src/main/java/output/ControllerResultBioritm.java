@@ -91,7 +91,9 @@ public class ControllerResultBioritm implements Initializable {
         List<String> x = new ArrayList<>();
         List<Integer> period = new ArrayList<>();
         GregorianCalendar[] data = new GregorianCalendar[1];
-        data[0]= bioritm.getData()[0];
+        data[0]= new GregorianCalendar();
+
+        data[0].set(bioritm.getData()[0].get(Calendar.YEAR), bioritm.getData()[0].get(Calendar.MONTH),bioritm.getData()[0].get(Calendar.DAY_OF_MONTH));
         int p = bioritm.getPeriod();
 
         x_area.setLabel("Дата");
@@ -125,10 +127,10 @@ public class ControllerResultBioritm implements Initializable {
             series4.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc4.apply(i)));
         }
 
-        series1.setName("phys");
-        series2.setName(("emotion"));
-        series3.setName(("intel"));
-        series4.setName(("all"));
+        series1.setName("физический");
+        series2.setName(("Эмоциональный"));
+        series3.setName(("Интелектуальный"));
+        series4.setName(("Общий"));
 
 
         grafik.getData().addAll(series1,series2,series3,series4);

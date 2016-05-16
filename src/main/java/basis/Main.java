@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 
@@ -265,8 +267,7 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             ControllerRegistration controller = loader.getController();
-            controller.setMain(this);
-            controller.setStage(dialogStage);
+            controller.setClass(this, dialogStage, conversion);
             dialogStage.showAndWait();
 
 
@@ -310,6 +311,8 @@ public class Main extends Application {
         if (!d.HasUser(u))
             throw new ClassNotFoundException("User not found");
 
+        if (!d.HasLogin(u))
+            throw new ClassNotFoundException("Wrong password");
 
         d.Get_user_data(u);
         FXMLLoader loader = new FXMLLoader();
@@ -321,23 +324,27 @@ public class Main extends Application {
         controller.setInfo(u.login, u.date, u.birthday);
         controller.setMain(this);
         controller.setbaseButton(baseButton);
-
-        d.Change_data_last_call(u, "25.04.2016");
+        GregorianCalendar[] date = new GregorianCalendar[1];
+        date[0] = new GregorianCalendar();
+        String [] s = conversion.dataToString(date,1);
+        d.Change_data_last_call(u, s[0]);
         d.Disconnect();
     }
 
-    public void registr(String login, String password, String birthday) throws SQLException, ClassNotFoundException, IOException {
+    public void registr(String login, String password,String birthday) throws SQLException, ClassNotFoundException, IOException {
         User u = new User();
 
         u.login = login;
         u.password = password;
         u.birthday = birthday;
-        //Calendar calendar = Calendar.getInstance();
-        u.date = "22.04.2016";
+        GregorianCalendar[] date = new GregorianCalendar[1];
+        date[0] = new GregorianCalendar();
+        String [] s = conversion.dataToString(date,1);
+        u.date = s[0];
         d.Connect();
 
 
-        if (!d.HasLogin(u)) {
+        if (!d.HasUser(u)) {
             //  if (u.birthday.length() > 10 || u.birthday.length() < 8 || u.birthday.indexOf(".") == -1)
             //     throw new IOException("Введите дату в формате dd.mm.yyyy");
             d.Add_user(u);

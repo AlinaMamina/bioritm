@@ -5,21 +5,33 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<SplitPane dividerPositions="0.2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basis.ControllerMenu">
+<SplitPane dividerPositions="0.4473684210526316" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basis.ControllerMenu">
     <items>
-        <AnchorPane SplitPane.resizableWithParent="false">
-            <children>
-                <Button fx:id="bioritm" layoutX="5.0" layoutY="41.0" mnemonicParsing="false" text="Биоритмы" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="41.0" />
-                <Button fx:id="what" layoutX="5.0" layoutY="152.0" mnemonicParsing="false" text="Что такое биоритмы?" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                <Button fx:id="copatibility" layoutX="5.0" layoutY="262.0" mnemonicParsing="false" text="Совместимость" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                <Button fx:id="settings" layoutX="5.0" layoutY="368.0" mnemonicParsing="false" text="Настройки" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-                <Button fx:id="help" layoutX="3.0" layoutY="486.0" mnemonicParsing="false" text="Помощь" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
-            </children></AnchorPane>
-        <AnchorPane>
-            <children>
-
-            </children></AnchorPane>
+      <AnchorPane prefHeight="586.0" prefWidth="227.0" SplitPane.resizableWithParent="false">
+         <children>
+            <GridPane layoutX="2.0" layoutY="1.0" prefHeight="558.0" prefWidth="226.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                      <Button fx:id="settings" mnemonicParsing="false" prefHeight="31.0" prefWidth="238.0" text="Настройки" GridPane.rowIndex="3" />
+                      <Button fx:id="what" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Что такое биоритмы?" GridPane.rowIndex="2" />
+                      <Button fx:id="bioritm" mnemonicParsing="false" prefHeight="31.0" prefWidth="236.0" text="Биоритмы" />
+                      <Button fx:id="copatibility" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Совместимость" GridPane.rowIndex="1" />
+                      <Button fx:id="help" mnemonicParsing="false" prefHeight="39.0" prefWidth="226.0" text="Помощь" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+        <AnchorPane SplitPane.resizableWithParent="false" />
     </items>
 
-
-</SplitPane>
+            
+      </SplitPane>

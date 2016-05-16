@@ -8,14 +8,14 @@ import java.lang.Math;
 public class CalcBiorithms {
 
     private Double[][] arrayOfBiorhythms = new Double[14][4];
-    private GregorianCalendar[] best = new GregorianCalendar[3];
+    private GregorianCalendar[] best = new GregorianCalendar[4];
     private GregorianCalendar[] table_data = new GregorianCalendar[14];
-    private  GregorianCalendar birthday;
+    private  GregorianCalendar birthday = new GregorianCalendar();
     private int count;
     private int time;
-    private final double phaseEmotion = 28;
-    private final double phasePhysical = 23;
-    private final double phaseIntellect = 33;
+    private final double phaseEmotion = 23;
+        private final double phasePhysical = 28;
+        private final double phaseIntellect = 33;
 
     public double getEmotionalBiorhythms(int period) {
         return (Math.sin(2 * Math.PI * period / phaseEmotion)) * 100;
@@ -32,23 +32,31 @@ public class CalcBiorithms {
     public double getAllBiorhythms(int period) {
         return (getIntellectualBiorhythms(period) + getPhysicalBiorhythms(period) + getEmotionalBiorhythms(period)) / 3;
     }
+    private void setArrayOfBiorhythms(int i , int period){
+        arrayOfBiorhythms[i][0] = (int) (getEmotionalBiorhythms(period) * 100) / 100.0;
+        arrayOfBiorhythms[i][1] = (int) (getPhysicalBiorhythms(period) * 100) / 100.0;
+        arrayOfBiorhythms[i][2] = (int) (getIntellectualBiorhythms(period) * 100) / 100.0;
+        arrayOfBiorhythms[i][3] = (int) (getAllBiorhythms(period) * 100) / 100.0;
+    }
+
 
     public void calcResult(int count_of_day, GregorianCalendar data, GregorianCalendar birthday) {
 
-        this.birthday = birthday;
+        this.birthday.set(birthday.get(Calendar.YEAR),birthday.get(Calendar.MONTH),birthday.get(Calendar.DAY_OF_MONTH));
         this.count = count_of_day;
         int period = countPeriod(data, birthday);
-        for (int i = 0; i < count_of_day; ++i) {
-            arrayOfBiorhythms[i][0] = (int) (getEmotionalBiorhythms(period) * 100) / 100.0;
-            arrayOfBiorhythms[i][1] = (int) (getPhysicalBiorhythms(period) * 100) / 100.0;
-            arrayOfBiorhythms[i][2] = (int) (getIntellectualBiorhythms(period) * 100) / 100.0;
-            arrayOfBiorhythms[i][3] = (int) (getAllBiorhythms(period) * 100) / 100.0;
-            data.add(Calendar.DATE, 1);
+        setArrayOfBiorhythms(0,period);
 
+        table_data[0] = new GregorianCalendar();
+        table_data[0].set(data.get(Calendar.YEAR), data.get(Calendar.MONTH), data.get(Calendar.DAY_OF_MONTH));
+
+        for (int i = 1; i < count_of_day; ++i) {
+            period++;
+            setArrayOfBiorhythms(i,period);
+            data.add(Calendar.DATE, 1);
             table_data[i] = new GregorianCalendar();
             table_data[i].set(data.get(Calendar.YEAR), data.get(Calendar.MONTH), data.get(Calendar.DAY_OF_MONTH));
 
-            period++;
         }
     }
 
@@ -78,7 +86,7 @@ public class CalcBiorithms {
     }
 
     public void calcBest(int count_of_day) {
-        Double[] bestBiorirm = new Double[count_of_day];
+        Double[] bestBiorirm = new Double[best.length];
 
 
         for (int i = 0; i < best.length; ++i) {

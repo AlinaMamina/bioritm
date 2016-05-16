@@ -33,7 +33,7 @@ public class ControllerEmail implements Initializable {
                 dialogStage.close();
 
             } catch (javax.mail.MessagingException e) {
-                main.showError(e.getMessage());
+                main.showError("Невозможно отправить сообщение");
             }
 
         });

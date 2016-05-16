@@ -9,7 +9,7 @@ public class Conversion {
     {
         GregorianCalendar data = new GregorianCalendar();
         data.setLenient(false);
-        data.set(Integer.valueOf(year.toString()),Integer.valueOf(month.toString()),Integer.valueOf(day.toString()));
+        data.set(Integer.valueOf(year.toString()),Integer.valueOf(month.toString())-1,Integer.valueOf(day.toString()));
         return  data;
     }
 
@@ -17,7 +17,7 @@ public class Conversion {
     {
         String[] str = new String[count];
         for( int i = 0; i< count;i++)
-            str[i]=String.valueOf(a[i].get(Calendar.DAY_OF_MONTH))+"."+String.valueOf(a[i].get(Calendar.MONTH))+"."+String.valueOf(a[i].get(Calendar.YEAR));
+            str[i]=String.valueOf(a[i].get(Calendar.DAY_OF_MONTH))+"."+String.valueOf(a[i].get(Calendar.MONTH)+1)+"."+String.valueOf(a[i].get(Calendar.YEAR));
       return str;
     }
 

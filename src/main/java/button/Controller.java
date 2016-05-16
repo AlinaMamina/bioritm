@@ -13,6 +13,8 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
@@ -36,6 +38,8 @@ public class Controller implements Initializable {
     @FXML
     private Button registr;
     @FXML
+    private Button today;
+    @FXML
     private Label error;
     private Main main;
     private Conversion conversion;
@@ -47,8 +51,18 @@ public class Controller implements Initializable {
         do_it.setOnAction(event->result());
         signIn.setOnAction(event -> main.showSignInDialog());
         registr.setOnAction(event -> main.showRegistrationDialog());
+        today.setOnAction(event->setData());
     }
+private void setData(){
+    GregorianCalendar[] date = new GregorianCalendar[1];
+    date[0] = new GregorianCalendar();
+    String [] s = conversion.dataToString(date,1);
+    String[] str = s[0].split("\\.");
 
+    day.setValue(str[0]);
+    month.setValue(str[1]);
+    year.setValue(str[2]);
+}
     private void result()
     {
         try {

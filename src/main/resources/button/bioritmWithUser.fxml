@@ -15,9 +15,9 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="button.ControllerUserBioritm">
     <children>
 
-        <Button fx:id="do_it" layoutX="225.0" layoutY="410.0" mnemonicParsing="false" text="Вычислить" />
+        <Button fx:id="do_it" layoutX="225.0" layoutY="410.0" mnemonicParsing="false" text="Вычислить" AnchorPane.bottomAnchor="159.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="281.0" />
 
-        <ComboBox fx:id="bd_month" layoutX="203.0" layoutY="147.0" prefWidth="150.0">
+        <ComboBox fx:id="bd_month" layoutX="203.0" layoutY="147.0" prefWidth="150.0" AnchorPane.leftAnchor="203.0" AnchorPane.rightAnchor="247.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1" />
@@ -73,7 +73,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="bd_year" layoutX="372.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0">
+        <ComboBox fx:id="bd_year" layoutX="375.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="131.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1900" />
@@ -196,7 +196,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="month" layoutX="203.0" layoutY="284.0" prefWidth="150.0">
+        <ComboBox fx:id="month" layoutX="86.0" layoutY="284.0" prefWidth="150.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="420.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1" />
@@ -214,7 +214,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="day" layoutX="89.0" layoutY="284.0" prefHeight="31.0" prefWidth="94.0">
+        <ComboBox fx:id="day" layoutX="375.0" layoutY="284.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.leftAnchor="375.0" AnchorPane.rightAnchor="131.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1" />
@@ -251,7 +251,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="year" layoutX="378.0" layoutY="284.0" maxHeight="50.0" prefHeight="31.0" prefWidth="94.0">
+        <ComboBox fx:id="year" layoutX="197.0" layoutY="284.0" maxHeight="50.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="253.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="1900" />
@@ -474,13 +474,13 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <Label layoutX="133.0" layoutY="82.0" text="Введите дату рождения:" />
-        <Label layoutX="133.0" layoutY="224.0" text="Введите дату вычисления биоритма:" />
-        <Button fx:id="exit" layoutX="505.0" layoutY="253.0" mnemonicParsing="false" text="выйти" />
+        <Label layoutX="133.0" layoutY="82.0" text="Введите дату рождения:" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="301.0" />
+        <Label layoutX="133.0" layoutY="224.0" text="Введите дату вычисления биоритма:" AnchorPane.leftAnchor="133.0" AnchorPane.rightAnchor="301.0" />
+        <Button fx:id="exit" layoutX="505.0" layoutY="253.0" mnemonicParsing="false" text="выйти" AnchorPane.leftAnchor="505.0" AnchorPane.rightAnchor="32.0" />
         <Label fx:id="error" layoutX="255.0" layoutY="346.0" />
-      <Label fx:id="data" layoutX="499.0" layoutY="34.0" text="Label" />
-      <Label layoutX="502.0" layoutY="66.0" prefHeight="129.0" prefWidth="94.0" text="дата последнего входа:" textAlignment="CENTER" wrapText="true" />
-      <Label fx:id="user" layoutX="499.0" layoutY="203.0" prefHeight="21.0" prefWidth="85.0" text="Label" />
+      <Label fx:id="data" layoutX="499.0" layoutY="34.0" text="Label" AnchorPane.leftAnchor="499.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="34.0" />
+      <Label layoutX="502.0" layoutY="66.0" prefHeight="129.0" prefWidth="94.0" text="дата последнего входа:" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="499.0" AnchorPane.rightAnchor="66.0" />
+      <Label fx:id="user" layoutX="499.0" layoutY="203.0" prefHeight="21.0" prefWidth="85.0" text="Label" AnchorPane.leftAnchor="499.0" AnchorPane.rightAnchor="66.0" />
     </children>
 
 </AnchorPane>
