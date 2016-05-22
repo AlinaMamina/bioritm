@@ -22,11 +22,11 @@
                   <content>
                       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1125.0" prefWidth="1000.0">
                           <children>
-              <Label layoutX="44.0" layoutY="297.0" text="Физический биоритм составляет:" AnchorPane.rightAnchor="727.0" AnchorPane.topAnchor="297.0" />
-              <Label layoutX="44.0" layoutY="419.0" prefHeight="21.0" prefWidth="293.0" text="Эмоциональный биоритм составляет:" />
-              <Label layoutX="44.0" layoutY="356.0" prefHeight="21.0" prefWidth="293.0" text="Интеллектуальный биоритм составляет:" />
-              <Label layoutX="47.0" layoutY="488.0" text="В общем:" />
-              <Button fx:id="back" layoutX="44.0" layoutY="532.0" mnemonicParsing="false" text="Назад" />
+              <Label layoutX="210.0" layoutY="297.0" text="%phys_b" AnchorPane.rightAnchor="731.0" AnchorPane.topAnchor="297.0" />
+              <Label layoutX="44.0" layoutY="419.0" prefHeight="21.0" prefWidth="293.0" text="%emotion_b" />
+              <Label layoutX="44.0" layoutY="356.0" prefHeight="21.0" prefWidth="293.0" text="%intel_b" />
+              <Label layoutX="47.0" layoutY="488.0" text="%all_b" />
+              <Button fx:id="back" layoutX="44.0" layoutY="532.0" mnemonicParsing="false" text="%back" />
               <ComboBox fx:id="period" layoutX="380.0" layoutY="143.0" prefWidth="150.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
@@ -47,8 +47,8 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="380.0" layoutY="49.0" prefHeight="91.0" prefWidth="150.0" text="Вы можете вычислить дни, в которые будут наилучшие биоритмы:" wrapText="true" />
-              <Button fx:id="do_it" layoutX="380.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Вычислить" AnchorPane.rightAnchor="470.0" />
+              <Label alignment="TOP_CENTER" contentDisplay="TEXT_ONLY" layoutX="380.0" layoutY="49.0" prefHeight="91.0" prefWidth="150.0" text="%best" wrapText="true" />
+              <Button fx:id="do_it" layoutX="380.0" layoutY="212.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="%calculate" AnchorPane.rightAnchor="470.0" />
               <LineChart fx:id="grafik" horizontalGridLinesVisible="false" layoutX="-3.0" layoutY="23.0" prefHeight="272.0" prefWidth="324.0">
                   <xAxis>
                       <CategoryAxis label="x" fx:id="x_area" />
@@ -57,7 +57,7 @@
                       <NumberAxis label="y" tickUnit="1" />
                   </yAxis>
               </LineChart>
-              <Button fx:id="save" layoutX="135.0" layoutY="532.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Сохранить" />
+              <Button fx:id="save" layoutX="135.0" layoutY="532.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="%send" />
               <Label fx:id="phys" layoutX="337.0" layoutY="297.0" text="5" />
               <Label fx:id="emotion" layoutX="337.0" layoutY="356.0" text="4" />
               <Label fx:id="intel" layoutX="337.0" layoutY="419.0" text="4" />

@@ -36,6 +36,7 @@ public class ControllerCopatibility implements Initializable {
     private Label error;
     private Main main;
     private Conversion conversion;
+    private ResourceBundle rb;
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -52,23 +53,20 @@ public class ControllerCopatibility implements Initializable {
 
             main.showResultCopatibility(bd1, bd2);
         } catch (IllegalArgumentException e) {
-            main.showError("Введите другую дату");
+            main.showError(rb.getString("enter_another"));
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException e) {
-            main.showError("Введите дату");
+            main.showError(rb.getString("enter_date"));
 
         }
 
     }
 
-    public void setConversion(Conversion conversion) {
-        this.conversion = conversion;
-
-    }
-
-    public void setMain(Main main) {
+    public void setFields(Main main,Conversion conversion,ResourceBundle rb) {
         this.main = main;
+        this.conversion = conversion;
+        this.rb = rb;
 
     }
 }

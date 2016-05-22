@@ -21,6 +21,7 @@ public class ControllerEmail implements Initializable {
     private EmailMain email;
     private Main main;
     private Stage dialogStage;
+    private ResourceBundle rb;
     String str;
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -33,7 +34,7 @@ public class ControllerEmail implements Initializable {
                 dialogStage.close();
 
             } catch (javax.mail.MessagingException e) {
-                main.showError("Невозможно отправить сообщение");
+                main.showError(rb.getString("internet"));
             }
 
         });
@@ -42,10 +43,10 @@ public class ControllerEmail implements Initializable {
 
     public void setEmail(EmailMain email, Double[][] info) {
         this.email = email;
-        this.str = "Ваши физические биоритмы составляют " + info[0][0].toString() +
-                "%. Ваши эмоциональные биоритмы составляют " + info[0][1].toString()
-                + "%. Ваши интеллектуальные биоритмы составляют" + info[0][2].toString()
-                + "%. Ваши общее состояние " + info[0][3].toString() + "%";
+        this.str = rb.getString("phys_b") + info[0][0].toString() +
+                "%. " + rb.getString("emotion_b")+ info[0][1].toString()
+                + "%. " + rb.getString("intel_b") + info[0][2].toString()
+                + "%. " + rb.getString("all_b") + info[0][3].toString() + "%";
     }
 
     public void setMain(Main main) {
@@ -54,7 +55,8 @@ public class ControllerEmail implements Initializable {
 
     public void setStage(Stage stage) {
         this.dialogStage = stage;
-
-
+    }
+    public void setRB(ResourceBundle rb){
+        this.rb = rb;
     }
 }

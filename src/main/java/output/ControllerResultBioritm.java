@@ -52,19 +52,8 @@ public class ControllerResultBioritm implements Initializable {
     private Conversion conversion;
     private Main main;
     private BaseButton baseButton;
-    final String[] info_p = {"Наблюдается хорошее физическое и физиологическое состояние," +
-            "подъем сил, выносливость",
-            "Все относительно, делайте то, что вам нравится!",
-            "Повышается утомляемость, физические нагрузки, сильнее отражаются на организме. " +
-                    "В эту фазу, рекомендуется внимательнее быть к своему здоровью, снизить активность и не переживать. "};
-    final String[] info_e = {"Наблюдается улучшение настроения, оптимизм, реакция на эмоциональные" +
-            " раздражители, существенно спокойней чем в другое время.",
-            "Все относительно, страйтесь меньше нервничать и больше радоваться жизни",
-            "Наблюдается пессимистичное настроение, апатия и вялость.  "};
-    final String[] info_i = {"Легко усваивается информация, умственные способности на максимуме, " +
-            "творческие процессы идут намного легче. ",
-            "Все относительно, и зависит только от вашего настроя",
-            "Ухудшается концентрация, интеллектуальные способности, повышается умственная утомляемость."};
+    private ResourceBundle rb;
+
 
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +65,7 @@ public class ControllerResultBioritm implements Initializable {
             } catch (IOException e) {
                 main.showError(e.getMessage());
             } catch (NullPointerException e) {
-                main.showError("Введите период");
+                main.showError(rb.getString("period"));
 
             }
         });
@@ -96,7 +85,7 @@ public class ControllerResultBioritm implements Initializable {
         data[0].set(bioritm.getData()[0].get(Calendar.YEAR), bioritm.getData()[0].get(Calendar.MONTH),bioritm.getData()[0].get(Calendar.DAY_OF_MONTH));
         int p = bioritm.getPeriod();
 
-        x_area.setLabel("Дата");
+        x_area.setLabel(rb.getString("_date"));
 
         for (int i = 0; i < 30; i++)
         {
@@ -127,11 +116,10 @@ public class ControllerResultBioritm implements Initializable {
             series4.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc4.apply(i)));
         }
 
-        series1.setName("физический");
-        series2.setName(("Эмоциональный"));
-        series3.setName(("Интелектуальный"));
-        series4.setName(("Общий"));
-
+        series1.setName(rb.getString("phys"));
+        series2.setName(rb.getString("emotion"));
+        series3.setName(rb.getString("intel"));
+        series4.setName(rb.getString("all"));
 
         grafik.getData().addAll(series1,series2,series3,series4);
 
@@ -140,10 +128,11 @@ public class ControllerResultBioritm implements Initializable {
 
 
 
-    public void setClass (Conversion conversion,BaseButton baseButton,Main main) {
+    public void setFields (Conversion conversion,BaseButton baseButton,Main main,ResourceBundle rb) {
         this.conversion = conversion;
         this.baseButton = baseButton;
         this.main = main;
+        this.rb = rb;
 
     }
 
@@ -156,6 +145,13 @@ public class ControllerResultBioritm implements Initializable {
     }
 
     private void setInfo(Double[][] result) {
+        final String[] info_p = {rb.getString("info_p_good"),rb.getString("info_p_norm"),
+                rb.getString("info_p_bad")};
+        final String[] info_e = {rb.getString("info_e_good"),rb.getString("info_e_norm"),
+                rb.getString("info_e_bad")};
+        final String[] info_i = {rb.getString("info_i_good"),rb.getString("info_i_norm"),
+                rb.getString("info_i_bad")};
+
         if (result[0][0] >= 40)
             p_info.setText(info_p[0]);
         if (result[0][0] > -30 && result[0][0] < 40)

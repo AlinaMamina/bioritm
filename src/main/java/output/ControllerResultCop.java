@@ -25,21 +25,25 @@ public class ControllerResultCop implements Initializable {
     private Label all;
     @FXML
     private Label p_info;
-    Main main;
+    private ResourceBundle rb;
+    private Main main;
 
     private BaseButton baseButton;
-    final String[] info = {"Такие значения совместимости говорят об отличных взаимоотношениях.", "Все очень неоднозначно, возможно у вас сможет что-то получиться", "Ваши биоритмы не совместимы"};
 
     public void initialize(URL url, ResourceBundle rb) {
         back.setOnAction(event -> baseButton.showCopatibility());
     }
+
    public void setMain(Main main) {
         this.main = main;
 
     }
 
+public void setRB(ResourceBundle rb){this.rb = rb;
+}
     public void setCompatibility(Double[] result) {
-
+        final String[] info = {rb.getString("info_c_good"),rb.getString("info_c_norm"),
+                rb.getString("info_c_bad")};
         phys.setText(result[0].toString() + "%");
         emotion.setText(result[1].toString() + "%");
         intel.setText(result[2].toString() + "%");

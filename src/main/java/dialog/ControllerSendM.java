@@ -20,6 +20,7 @@ public class ControllerSendM implements Initializable {
     private EmailMain email;
     private Main main;
     private Stage dialogStage;
+    private ResourceBundle rb;
 
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -28,7 +29,7 @@ public class ControllerSendM implements Initializable {
                 email.send("alinamalina555@yandex.ru", text.getText());
                 this.dialogStage.close();
             } catch (MessagingException e) {
-                main.showError("Отсутствует подключение к интернету");
+                main.showError(rb.getString("internet"));
             }
         });
 
@@ -44,7 +45,9 @@ public class ControllerSendM implements Initializable {
 
 
     }
-
+public void setRB(ResourceBundle rb){
+    this.rb = rb;
+}
     public void setStage(Stage stage) {
         this.dialogStage = stage;
 

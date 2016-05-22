@@ -6,8 +6,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="257.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dialog.ControllerSendM">
     <children>
-        <Button fx:id="send" layoutX="156.0" layoutY="186.0" mnemonicParsing="false" text="Отправить" />
-        <Label layoutX="49.0" layoutY="25.0" prefHeight="21.0" prefWidth="158.0" text="Введите сообщение:" />
+        <Button fx:id="send" layoutX="156.0" layoutY="186.0" mnemonicParsing="false" text="%send" />
+        <Label layoutX="49.0" layoutY="25.0" prefHeight="21.0" prefWidth="158.0" text="%enter_mess" />
         <TextArea fx:id="text" layoutX="49.0" layoutY="46.0" prefHeight="124.0" prefWidth="288.0" />
     </children>
 </AnchorPane>

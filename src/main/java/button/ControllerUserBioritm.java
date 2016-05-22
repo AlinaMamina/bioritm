@@ -43,19 +43,29 @@ public class ControllerUserBioritm implements Initializable {
     private Main main;
     private BaseButton baseButton;
     private Conversion conversion;
+    private ResourceBundle rb;
+
 
     public void initialize(URL url, ResourceBundle rb) {
 
         do_it.setOnAction(event -> {
-            try {
-                GregorianCalendar birthday = conversion.toCalendar(bd_day.getValue(), bd_month.getValue(), bd_year.getValue());
-                GregorianCalendar data = conversion.toCalendar(day.getValue(), month.getValue(), year.getValue());
-                main.showResult(birthday,data);
-            } catch (IOException e) {
-                error.setText("Введите дату!");
-            }
-        });
+                    try {
+                        GregorianCalendar birthday = conversion.toCalendar(bd_day.getValue(), bd_month.getValue(), bd_year.getValue());
+                        GregorianCalendar data = conversion.toCalendar(day.getValue(), month.getValue(), year.getValue());
+                        if (birthday.after(data)) {
+                            main.showError(rb.getString("wrong_date"));
+                            return;
+                        }
+                        main.showResult(birthday, data);
+                    } catch (NullPointerException e) {
+                        main.showError(rb.getString("enter_date"));
 
+                    } catch (IllegalArgumentException e) {
+                        main.showError(rb.getString("enter_another"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
         exit.setOnAction(event -> baseButton.showBioritm());
 
     }
@@ -73,12 +83,11 @@ public class ControllerUserBioritm implements Initializable {
         bd_year.setValue(str[2]);
     }
 
-    public void setbaseButton(BaseButton baseButton) {
+    public void setFields(Main main,Conversion conversion,ResourceBundle rb,BaseButton baseButton) {
+        this.main = main;
+        this.conversion = conversion;
+        this.rb = rb;
         this.baseButton = baseButton;
-
-    }
-    public void setConversion(Conversion conversion) {
-        this.conversion= conversion;
 
     }
 }

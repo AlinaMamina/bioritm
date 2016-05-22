@@ -19,9 +19,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 
 import button.Controller;
@@ -40,23 +38,27 @@ public class Main extends Application {
     private CalcCompatibility compatibility;
     private Conversion conversion;
     private BaseButton baseButton;
-
+    private ResourceBundle rb;
     private DataBase d;
 
     @Override
     public void start(Stage primaryStage) {
+
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Bioritm");
+        this.rb = ResourceBundle.getBundle("Locale", new Locale("en"));
+        this.primaryStage.setTitle(rb.getString("button.biorhythm"));
 
         emailSender = new EmailMain();
         bioritm = new CalcBiorithms();
         compatibility = new CalcCompatibility();
-        conversion = new Conversion();
+        conversion = new Conversion(rb);
+
         File file;
         if (!(file = new File("src\\main\\resources\\testbase.mv.db")).exists())
             throw new RuntimeException("File not found!");
         String str = file.getAbsolutePath();
         d = new DataBase(str.replace(".mv.db", ""));
+
         initRootLayout();
 
     }
@@ -65,6 +67,7 @@ public class Main extends Application {
     public void initRootLayout() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/button/menu.fxml"));
             rootLayout = loader.load();
 
@@ -74,15 +77,15 @@ public class Main extends Application {
             primaryStage.show();
 
             FXMLLoader loader_bio = new FXMLLoader();
+            loader_bio.setResources(rb);
             loader_bio.setLocation(Main.class.getResource("/button/bioritm.fxml"));
             AnchorPane BioritmLayout = (AnchorPane) loader_bio.load();
 
 
             Controller controller = loader_bio.getController();
-            controller.setMain(this);
-            controller.setConversion(conversion);
+            controller.setFields(this, conversion, rb);
             rootLayout.getItems().add(2, BioritmLayout);
-            baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion);
+            baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion,this.rb);
 
             ControllerMenu controller_menu = loader.getController();
             controller_menu.setMain(baseButton);
@@ -96,6 +99,7 @@ public class Main extends Application {
     public void showTable(Object p) throws NullPointerException, IOException {
         int period = Integer.valueOf(p.toString());
         FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/result/resultTable.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
@@ -116,6 +120,7 @@ public class Main extends Application {
         Double[][] result = bioritm.getResult();
 
         FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/result/resultBioritm.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
@@ -123,7 +128,7 @@ public class Main extends Application {
 
 
         ControllerResultBioritm controller = loader.getController();
-        controller.setClass(conversion,baseButton,this);
+        controller.setFields(conversion, baseButton, this, rb);
         controller.setBioritm(result);
         controller.paintGrafik(bioritm);
     }
@@ -131,14 +136,16 @@ public class Main extends Application {
     public void showResult() throws IOException, NullPointerException {
 
         Double[][] result = bioritm.getResult();
+
         FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/result/resultBioritm.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
 
         rootLayout.getItems().set(2, Layout);
 
         ControllerResultBioritm controller = loader.getController();
-        controller.setClass(conversion,baseButton,this);
+        controller.setFields(conversion, baseButton, this, rb);
         controller.setBioritm(result);
         controller.paintGrafik(bioritm);
 
@@ -147,17 +154,20 @@ public class Main extends Application {
     public void showResultCopatibility(GregorianCalendar bd1, GregorianCalendar bd2) throws IOException, NullPointerException {
 
         Double[] result = compatibility.calcCompatibility(bd1, bd2);
+
         FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/result/resultCopatibility.fxml"));
         AnchorPane Layout = (AnchorPane) loader.load();
-
 
         rootLayout.getItems().set(2, Layout);
 
         ControllerResultCop controller = loader.getController();
-        controller.setCompatibility(result);
+
         controller.setBaseButton(baseButton);
+        controller.setRB(rb);
         controller.setMain(this);
+        controller.setCompatibility(result);
 
     }
 
@@ -165,14 +175,19 @@ public class Main extends Application {
 
         if (style.toString().equals("red"))
             primaryStage.getScene().getStylesheets().setAll("/style/red.css");
-
         if (style.toString().equals("blue"))
             primaryStage.getScene().getStylesheets().setAll("/style/blau.css");
         if (style.toString().equals("green"))
             primaryStage.getScene().getStylesheets().setAll("/style/green.css");
-
         if (style.toString().equals("black"))
             primaryStage.getScene().getStylesheets().setAll("/style/black.css");
+        if(language.toString().equals(rb.getString("russian"))) {
+            this.rb = ResourceBundle.getBundle("Locale", new Locale("ru"));
+        }
+        if(language.toString().equals(rb.getString("english"))) {
+            this.rb = ResourceBundle.getBundle("Locale", new Locale("en"));
+        }
+
 
 
     }
@@ -180,11 +195,11 @@ public class Main extends Application {
     public void showEmailDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/dialog/email.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Send result");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
@@ -192,9 +207,11 @@ public class Main extends Application {
 
             ControllerEmail controller = loader.getController();
             //  controller.setDialogStage(dialogStage);
-            controller.setEmail(emailSender, bioritm.getResult());
+
             controller.setMain(this);
+            controller.setRB(rb);
             controller.setStage(dialogStage);
+            controller.setEmail(emailSender, bioritm.getResult());
             dialogStage.showAndWait();
 
 
@@ -207,12 +224,12 @@ public class Main extends Application {
     public void showDialogHelp() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/dialog/sendMassage.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Send message");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
@@ -221,6 +238,7 @@ public class Main extends Application {
             ControllerSendM controller = loader.getController();
             controller.setEmail(emailSender);
             controller.setMain(this);
+            controller.setRB(rb);
             controller.setStage(dialogStage);
             dialogStage.showAndWait();
         } catch (IOException e) {
@@ -233,11 +251,11 @@ public class Main extends Application {
     public void showSignInDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/dialog/BD.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("In");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
@@ -257,17 +275,18 @@ public class Main extends Application {
     public void showRegistrationDialog() {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/dialog/registration.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Registration form");
+            dialogStage.setTitle(rb.getString("reg_form"));
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             ControllerRegistration controller = loader.getController();
-            controller.setClass(this, dialogStage, conversion);
+            controller.setClass(this, dialogStage, conversion,rb);
             dialogStage.showAndWait();
 
 
@@ -280,6 +299,7 @@ public class Main extends Application {
     public void showError(String text) {
         try {
             FXMLLoader loader = new FXMLLoader();
+            loader.setResources(rb);
             loader.setLocation(Main.class.getResource("/dialog/error.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
@@ -309,24 +329,26 @@ public class Main extends Application {
         d.Connect();
 
         if (!d.HasUser(u))
-            throw new ClassNotFoundException("User not found");
+            throw new ClassNotFoundException(rb.getString("not_found"));
 
         if (!d.HasLogin(u))
-            throw new ClassNotFoundException("Wrong password");
-
+            throw new ClassNotFoundException(rb.getString("wrong_password"));
         d.Get_user_data(u);
+
         FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/button/bioritmWithUser.fxml"));
         AnchorPane page = (AnchorPane) loader.load();
 
         rootLayout.getItems().set(2, page);
         ControllerUserBioritm controller = loader.getController();
         controller.setInfo(u.login, u.date, u.birthday);
-        controller.setMain(this);
-        controller.setbaseButton(baseButton);
+        controller.setFields(this,conversion,rb,baseButton);
+
         GregorianCalendar[] date = new GregorianCalendar[1];
         date[0] = new GregorianCalendar();
         String [] s = conversion.dataToString(date,1);
+
         d.Change_data_last_call(u, s[0]);
         d.Disconnect();
     }
@@ -343,14 +365,10 @@ public class Main extends Application {
         u.date = s[0];
         d.Connect();
 
-
         if (!d.HasUser(u)) {
-            //  if (u.birthday.length() > 10 || u.birthday.length() < 8 || u.birthday.indexOf(".") == -1)
-            //     throw new IOException("Введите дату в формате dd.mm.yyyy");
             d.Add_user(u);
         } else
-            throw new SQLException("User exist");
-
+            throw new SQLException(rb.getString("user"));
 
         d.Disconnect();
     }

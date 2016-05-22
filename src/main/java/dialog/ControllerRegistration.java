@@ -35,6 +35,7 @@ public class ControllerRegistration implements Initializable {
     private Main main;
     private Stage dialogStage;
     private Conversion conversion;
+    private ResourceBundle rb;
     String str;
 
     public void initialize(URL url, ResourceBundle rb) {
@@ -64,20 +65,21 @@ public class ControllerRegistration implements Initializable {
             String[] birthday = conversion.dataToString(data, 1);
             return birthday[0];
         } catch (NullPointerException e) {
-            main.showError("¬ведите дату");
+            main.showError(rb.getString("enter_date"));
             return null;
 
         } catch (IllegalArgumentException e) {
-            main.showError("¬ведите другую дату");
+            main.showError(rb.getString("enter_another"));
             return null;
         }
 
     }
 
-    public void setClass(Main main, Stage stage, Conversion conversion) {
+    public void setClass(Main main, Stage stage, Conversion conversion,ResourceBundle rb) {
         this.main = main;
         this.dialogStage = stage;
         this.conversion = conversion;
+        this.rb = rb;
 
 
     }

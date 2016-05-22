@@ -10,16 +10,16 @@
         <content>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1125.0" prefWidth="1000.0">
             <children>
-        <Label layoutX="85.0" layoutY="26.0" text="Физические биоритмы совместимы на" />
+        <Label layoutX="85.0" layoutY="26.0" text="%phys_c" />
         <Label fx:id="phys" layoutX="432.0" layoutY="26.0" text="98%" />
-        <Label layoutX="85.0" layoutY="80.0" prefHeight="21.0" prefWidth="313.0" text="Эмоциональные биоритмы совместимы на" />
+        <Label layoutX="85.0" layoutY="80.0" prefHeight="21.0" prefWidth="313.0" text="%emotion_c" />
         <Label fx:id="emotion" layoutX="432.0" layoutY="80.0" text="5%" />
-        <Label layoutX="85.0" layoutY="137.0" text="Интеллектуальные биоритмы совместимы на" />
+        <Label layoutX="85.0" layoutY="137.0" text="%intel_c" />
         <Label fx:id="intel" layoutX="432.0" layoutY="137.0" text="56%" />
-        <Label layoutX="85.0" layoutY="205.0" text="Общая совместимость" />
+        <Label layoutX="85.0" layoutY="205.0" text="%all_c" />
         <Label fx:id="all" layoutX="429.0" layoutY="205.0" text="33%" />
         <Label fx:id="p_info" layoutX="85.0" layoutY="308.0" text="" />
-        <Button fx:id="back" layoutX="32.0" layoutY="536.0" mnemonicParsing="false" text="назад" />
+        <Button fx:id="back" layoutX="32.0" layoutY="536.0" mnemonicParsing="false" text="%back" />
             </children>
             </AnchorPane>
         </content>

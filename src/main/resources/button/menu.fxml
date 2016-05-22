@@ -21,11 +21,11 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                      <Button fx:id="settings" mnemonicParsing="false" prefHeight="31.0" prefWidth="238.0" text="Настройки" GridPane.rowIndex="3" />
-                      <Button fx:id="what" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Что такое биоритмы?" GridPane.rowIndex="2" />
-                      <Button fx:id="bioritm" mnemonicParsing="false" prefHeight="31.0" prefWidth="236.0" text="Биоритмы" />
-                      <Button fx:id="copatibility" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="Совместимость" GridPane.rowIndex="1" />
-                      <Button fx:id="help" mnemonicParsing="false" prefHeight="39.0" prefWidth="226.0" text="Помощь" GridPane.rowIndex="4" />
+                      <Button fx:id="settings" mnemonicParsing="false" prefHeight="31.0" prefWidth="238.0" text="%button.settings" GridPane.rowIndex="3" />
+                      <Button fx:id="what" alignment="BOTTOM_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="%button.about" GridPane.rowIndex="2" />
+                      <Button fx:id="bioritm" mnemonicParsing="false" prefHeight="31.0" prefWidth="236.0" text="%button.biorhythm" />
+                      <Button fx:id="copatibility" alignment="TOP_CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" text="%button.compatibility" GridPane.rowIndex="1" />
+                      <Button fx:id="help" mnemonicParsing="false" prefHeight="39.0" prefWidth="226.0" text="%button.help" GridPane.rowIndex="4" />
                </children>
             </GridPane>
          </children>

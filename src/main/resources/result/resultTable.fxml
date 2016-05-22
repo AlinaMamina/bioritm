@@ -12,17 +12,17 @@
                     <children>
                         <TableView fx:id="table" layoutX="101.0" prefHeight="428.0" prefWidth="416.0">
                             <columns>
-                                <TableColumn fx:id="day" prefWidth="110.0" text="День" />
-                                <TableColumn fx:id="result" prefWidth="305.0" text="Результат" />
+                                <TableColumn fx:id="day" prefWidth="110.0" text="%day" />
+                                <TableColumn fx:id="result" prefWidth="305.0" text="%result" />
                             </columns>
                         </TableView>
-                        <Label layoutX="101.0" layoutY="465.0" prefHeight="29.0" prefWidth="347.0" text="Наилучший физический биоритм -" />
-                        <Label layoutX="101.0" layoutY="502.0" prefHeight="21.0" prefWidth="346.0" text="Наилучший эмоциональный биоритм -" />
-                        <Label layoutX="101.0" layoutY="531.0" prefHeight="21.0" prefWidth="348.0" text="Наилучший интеллектуальный биоритм -" />
+                        <Label layoutX="101.0" layoutY="465.0" prefHeight="29.0" prefWidth="347.0" text="%best_p" />
+                        <Label layoutX="101.0" layoutY="502.0" prefHeight="21.0" prefWidth="346.0" text="%best_e" />
+                        <Label layoutX="101.0" layoutY="531.0" prefHeight="21.0" prefWidth="348.0" text="%best_i" />
                         <Label fx:id="phys" layoutX="449.0" layoutY="469.0" prefHeight="21.0" prefWidth="80.0" text="10.02.2016" />
                         <Label fx:id="emotion" layoutX="449.0" layoutY="502.0" text="12.02.2016" />
                         <Label fx:id="intel" layoutX="449.0" layoutY="531.0" text="25.02.2016" />
-                        <Button fx:id="back" layoutX="14.0" layoutY="526.0" mnemonicParsing="false" text="назад" />
+                        <Button fx:id="back" layoutX="14.0" layoutY="526.0" mnemonicParsing="false" text="%back" />
                     </children>
                 </AnchorPane>
             </content>

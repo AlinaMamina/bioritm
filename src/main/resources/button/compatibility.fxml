@@ -365,9 +365,9 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <Button fx:id="do_it" layoutX="191.0" layoutY="407.0" mnemonicParsing="false" text="Вычислить" />
-        <Label layoutX="80.0" layoutY="53.0" text="Введите дату рождения:" />
-        <Label layoutX="80.0" layoutY="227.0" text="Введите дату рождения:" />
+        <Button fx:id="do_it" layoutX="191.0" layoutY="407.0" mnemonicParsing="false" text="%calculate" />
+        <Label layoutX="80.0" layoutY="53.0" text="%birthday" />
+        <Label layoutX="80.0" layoutY="227.0" text="%date" />
       <Label fx:id="error" layoutX="211.0" layoutY="354.0" />
     </children>
 

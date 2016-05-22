@@ -43,6 +43,7 @@ public class Controller implements Initializable {
     private Label error;
     private Main main;
     private Conversion conversion;
+    private ResourceBundle rb;
 
 
 
@@ -53,6 +54,7 @@ public class Controller implements Initializable {
         registr.setOnAction(event -> main.showRegistrationDialog());
         today.setOnAction(event->setData());
     }
+
 private void setData(){
     GregorianCalendar[] date = new GregorianCalendar[1];
     date[0] = new GregorianCalendar();
@@ -69,27 +71,25 @@ private void setData(){
             GregorianCalendar birthday = conversion.toCalendar(bd_day.getValue(), bd_month.getValue(), bd_year.getValue());
             GregorianCalendar data = conversion.toCalendar(day.getValue(), month.getValue(), year.getValue());
             if (birthday.after(data)) {
-                main.showError("дата введена неверно");
+                main.showError(rb.getString("wrong_date"));
                 return;
             }
             main.showResult(birthday,data);
         }catch (NullPointerException e) {
-            main.showError("Введите дату");
+            main.showError(rb.getString("enter_date"));
 
         }catch (IllegalArgumentException e) {
-            main.showError("Введите другую дату");
+            main.showError(rb.getString("enter_another"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public void setMain(Main main) {
+    public void setFields(Main main,Conversion conversion,ResourceBundle rb) {
         this.main = main;
-
-
-    }
-    public void setConversion(Conversion conversion) {
         this.conversion = conversion;
+        this.rb = rb;
 
     }
+
 
 }

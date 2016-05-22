@@ -7,9 +7,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="button.ControllerSettings">
     <children>
-        <Label layoutX="41.0" layoutY="33.0" prefHeight="21.0" prefWidth="269.0" text="Выберете тему:" />
-        <Label layoutX="41.0" layoutY="217.0" prefHeight="21.0" prefWidth="113.0" text="Выберете язык:" />
-        <ComboBox fx:id="style" layoutX="185.0" layoutY="28.0" prefWidth="150.0" >
+        <Label layoutX="41.0" layoutY="33.0" prefHeight="21.0" prefWidth="269.0" text="%choose_theme" />
+        <Label layoutX="41.0" layoutY="217.0" prefHeight="21.0" prefWidth="113.0" text="%choose_lang" />
+        <ComboBox fx:id="style" layoutX="185.0" layoutY="28.0" prefWidth="150.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="red" />
@@ -19,14 +19,14 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="sprache" layoutX="185.0" layoutY="212.0" prefWidth="150.0" >
+        <ComboBox fx:id="sprache" layoutX="185.0" layoutY="212.0" prefWidth="150.0">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="русский" />
-                    <String fx:value="английский" />
+                    <String fx:value="russian" />
+                    <String fx:value="english" />
                 </FXCollections>
             </items>
         </ComboBox>
-        <Button fx:id="do_it" layoutX="208.0" layoutY="483.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="Применить" />
+        <Button fx:id="do_it" layoutX="208.0" layoutY="483.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="150.0" text="%apply" />
     </children>
 </AnchorPane>

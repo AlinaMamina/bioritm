@@ -2,8 +2,14 @@ package calculation;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.ResourceBundle;
 
 public class Conversion {
+private ResourceBundle rb;
+
+    public Conversion(ResourceBundle rb) {
+        this.rb = rb;
+    }
 
     public  GregorianCalendar toCalendar(Object day, Object month, Object year) throws NullPointerException,IllegalArgumentException
     {
@@ -24,8 +30,8 @@ public class Conversion {
     public  String bioritmToString (Double[] a)
     {
         String str = new String();
-        str = "Физический - "+a[0].toString()+"%."+'\n'+"Эмоциональный - "+a[1].toString()+"%."+'\n'+" Интеллектуальный - "+a[2].toString()+
-                "%."+'\n'+" Общий -"+a[3].toString()+"%.";
+        str = rb.getString("phys")+" - "+a[0].toString()+"%."+'\n'+rb.getString("emotion")+" - "+a[1].toString()+"%."+'\n'+rb.getString("intel")+" - "+a[2].toString()+
+                "%."+'\n'+rb.getString("all")+" - "+a[3].toString()+"%.";
         return str;
     }
 
