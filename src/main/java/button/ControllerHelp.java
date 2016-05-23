@@ -9,9 +9,6 @@ import basis.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by 123 on 15.04.2016.
- */
 public class ControllerHelp implements Initializable {
     @FXML
     private Button help;

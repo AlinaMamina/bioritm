@@ -1,5 +1,6 @@
 package basis;
 
+import button.ControllerSettings;
 import button.ControllerUserBioritm;
 import calculation.CalcBiorithms;
 import calculation.CalcCompatibility;
@@ -40,18 +41,20 @@ public class Main extends Application {
     private BaseButton baseButton;
     private ResourceBundle rb;
     private DataBase d;
+    private String style_path = "style/blau.css";
 
     @Override
     public void start(Stage primaryStage) {
 
         this.primaryStage = primaryStage;
-        this.rb = ResourceBundle.getBundle("Locale", new Locale("en"));
+        this.rb = ResourceBundle.getBundle("Locale", new Locale("ru"));
         this.primaryStage.setTitle(rb.getString("button.biorhythm"));
 
         emailSender = new EmailMain();
         bioritm = new CalcBiorithms();
         compatibility = new CalcCompatibility();
         conversion = new Conversion(rb);
+
 
         File file;
         if (!(file = new File("src\\main\\resources\\testbase.mv.db")).exists())
@@ -72,7 +75,7 @@ public class Main extends Application {
             rootLayout = loader.load();
 
             primaryStage.setScene(new Scene(rootLayout));
-            primaryStage.getScene().getStylesheets().add("style/blau.css");
+            primaryStage.getScene().getStylesheets().add(style_path);
 
             primaryStage.show();
 
@@ -85,8 +88,8 @@ public class Main extends Application {
             Controller controller = loader_bio.getController();
             controller.setFields(this, conversion, rb);
             rootLayout.getItems().add(2, BioritmLayout);
-            baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion,this.rb);
 
+            baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion, this.rb);
             ControllerMenu controller_menu = loader.getController();
             controller_menu.setMain(baseButton);
 
@@ -98,6 +101,7 @@ public class Main extends Application {
 
     public void showTable(Object p) throws NullPointerException, IOException {
         int period = Integer.valueOf(p.toString());
+
         FXMLLoader loader = new FXMLLoader();
         loader.setResources(rb);
         loader.setLocation(Main.class.getResource("/result/resultTable.fxml"));
@@ -171,23 +175,65 @@ public class Main extends Application {
 
     }
 
-    public void chooseSettings(Object style, Object language) {
+    private void newrootLayout() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setResources(rb);
+        loader.setLocation(Main.class.getResource("/button/menu.fxml"));
+        rootLayout = loader.load();
 
-        if (style.toString().equals("red"))
-            primaryStage.getScene().getStylesheets().setAll("/style/red.css");
-        if (style.toString().equals("blue"))
-            primaryStage.getScene().getStylesheets().setAll("/style/blau.css");
-        if (style.toString().equals("green"))
-            primaryStage.getScene().getStylesheets().setAll("/style/green.css");
-        if (style.toString().equals("black"))
-            primaryStage.getScene().getStylesheets().setAll("/style/black.css");
-        if(language.toString().equals(rb.getString("russian"))) {
-            this.rb = ResourceBundle.getBundle("Locale", new Locale("ru"));
-        }
-        if(language.toString().equals(rb.getString("english"))) {
-            this.rb = ResourceBundle.getBundle("Locale", new Locale("en"));
-        }
+        primaryStage.setScene(new Scene(rootLayout));
+        primaryStage.getScene().getStylesheets().add(style_path);
 
+        primaryStage.show();
+
+        conversion.setRB(rb);
+        baseButton = new BaseButton(this.primaryStage, rootLayout, this, this.conversion, this.rb);
+        FXMLLoader loaderset = new FXMLLoader();
+        loaderset.setResources(rb);
+        loaderset.setLocation(Main.class.getResource("/button/settings.fxml"));
+        AnchorPane Layout = (AnchorPane) loaderset.load();
+        rootLayout.getItems().add(2, Layout);
+
+        ControllerSettings controller = loaderset.getController();
+        controller.setMain(this);
+
+        ControllerMenu controller_menu = loader.getController();
+        controller_menu.setMain(baseButton);
+    }
+
+    public void chooseSettings(Object style, Object language) throws IOException {
+        if (language != null) {
+            if (language.toString().equals(rb.getString("russian"))) {
+                this.rb = ResourceBundle.getBundle("Locale", new Locale("ru"));
+                newrootLayout();
+            }
+            if (language.toString().equals(rb.getString("english"))) {
+                this.rb = ResourceBundle.getBundle("Locale", new Locale("en"));
+                newrootLayout();
+            }
+
+        }
+        if (style != null) {
+            if (style.toString().equals(rb.getString("red"))) {
+                style_path = "/style/red.css";
+                primaryStage.getScene().getStylesheets().setAll(style_path);
+            }
+
+            if (style.toString().equals(rb.getString("blue"))) {
+                style_path = "/style/blau.css";
+                primaryStage.getScene().getStylesheets().setAll("/style/blau.css");
+            }
+
+            if (style.toString().equals(rb.getString("green"))) {
+                style_path = "/style/green.css";
+                primaryStage.getScene().getStylesheets().setAll("/style/green.css");
+            }
+
+            if (style.toString().equals(rb.getString("black"))) {
+                style_path = "/style/black.css";
+                primaryStage.getScene().getStylesheets().setAll("/style/black.css");
+            }
+        }
 
 
     }
@@ -206,7 +252,6 @@ public class Main extends Application {
             dialogStage.setScene(scene);
 
             ControllerEmail controller = loader.getController();
-            //  controller.setDialogStage(dialogStage);
 
             controller.setMain(this);
             controller.setRB(rb);
@@ -286,7 +331,7 @@ public class Main extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             ControllerRegistration controller = loader.getController();
-            controller.setClass(this, dialogStage, conversion,rb);
+            controller.setClass(this, dialogStage, conversion, rb);
             dialogStage.showAndWait();
 
 
@@ -343,25 +388,26 @@ public class Main extends Application {
         rootLayout.getItems().set(2, page);
         ControllerUserBioritm controller = loader.getController();
         controller.setInfo(u.login, u.date, u.birthday);
-        controller.setFields(this,conversion,rb,baseButton);
+        controller.setFields(this, conversion, rb, baseButton);
 
         GregorianCalendar[] date = new GregorianCalendar[1];
         date[0] = new GregorianCalendar();
-        String [] s = conversion.dataToString(date,1);
+        String[] s = conversion.dataToString(date, 1);
 
         d.Change_data_last_call(u, s[0]);
         d.Disconnect();
     }
 
-    public void registr(String login, String password,String birthday) throws SQLException, ClassNotFoundException, IOException {
+    public void registr(String login, String password, String birthday) throws SQLException, ClassNotFoundException, IOException {
         User u = new User();
 
         u.login = login;
         u.password = password;
         u.birthday = birthday;
+
         GregorianCalendar[] date = new GregorianCalendar[1];
         date[0] = new GregorianCalendar();
-        String [] s = conversion.dataToString(date,1);
+        String[] s = conversion.dataToString(date, 1);
         u.date = s[0];
         d.Connect();
 

@@ -13,9 +13,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
-/**
- * Created by 123 on 24.04.2016.
- */
 public class BaseButton {
     private Stage primaryStage;
     private SplitPane rootLayout;

@@ -12,8 +12,8 @@ public class CalcCompatibility {
             15, 15, 15, 17, 22, 22, 25, 30, 30, 36, 36, 40, 43, 48, 48, 50, 57, 60, 70, 70,
             70, 78, 78, 78, 80, 83, 85, 88, 92, 92, 95, 95, 96, 98, 98, 99, 99, 99, 99};
 
-    private final double phaseEmotion = 28;
-    private final double phasePhysical = 23;
+    private final double phaseEmotion = 23;
+    private final double phasePhysical = 28;
     private final double phaseIntellect = 33;
 
 

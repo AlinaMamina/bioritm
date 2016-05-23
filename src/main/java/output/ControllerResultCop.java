@@ -34,15 +34,17 @@ public class ControllerResultCop implements Initializable {
         back.setOnAction(event -> baseButton.showCopatibility());
     }
 
-   public void setMain(Main main) {
+    public void setMain(Main main) {
         this.main = main;
 
     }
 
-public void setRB(ResourceBundle rb){this.rb = rb;
-}
+    public void setRB(ResourceBundle rb) {
+        this.rb = rb;
+    }
+
     public void setCompatibility(Double[] result) {
-        final String[] info = {rb.getString("info_c_good"),rb.getString("info_c_norm"),
+        final String[] info = {rb.getString("info_c_good"), rb.getString("info_c_norm"),
                 rb.getString("info_c_bad")};
         phys.setText(result[0].toString() + "%");
         emotion.setText(result[1].toString() + "%");

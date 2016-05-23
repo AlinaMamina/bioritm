@@ -44,7 +44,7 @@ public class ControllerEmail implements Initializable {
     public void setEmail(EmailMain email, Double[][] info) {
         this.email = email;
         this.str = rb.getString("phys_b") + info[0][0].toString() +
-                "%. " + rb.getString("emotion_b")+ info[0][1].toString()
+                "%. " + rb.getString("emotion_b") + info[0][1].toString()
                 + "%. " + rb.getString("intel_b") + info[0][2].toString()
                 + "%. " + rb.getString("all_b") + info[0][3].toString() + "%";
     }
@@ -56,7 +56,8 @@ public class ControllerEmail implements Initializable {
     public void setStage(Stage stage) {
         this.dialogStage = stage;
     }
-    public void setRB(ResourceBundle rb){
+
+    public void setRB(ResourceBundle rb) {
         this.rb = rb;
     }
 }

@@ -10,11 +10,14 @@ private ResourceBundle rb;
     public Conversion(ResourceBundle rb) {
         this.rb = rb;
     }
+    public void setRB(ResourceBundle rb){
+        this.rb = rb;
+    }
 
     public  GregorianCalendar toCalendar(Object day, Object month, Object year) throws NullPointerException,IllegalArgumentException
     {
         GregorianCalendar data = new GregorianCalendar();
-        data.setLenient(false);
+        //data.setLenient(false);
         data.set(Integer.valueOf(year.toString()),Integer.valueOf(month.toString())-1,Integer.valueOf(day.toString()));
         return  data;
     }

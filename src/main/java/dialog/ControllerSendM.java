@@ -45,9 +45,11 @@ public class ControllerSendM implements Initializable {
 
 
     }
-public void setRB(ResourceBundle rb){
-    this.rb = rb;
-}
+
+    public void setRB(ResourceBundle rb) {
+        this.rb = rb;
+    }
+
     public void setStage(Stage stage) {
         this.dialogStage = stage;
 

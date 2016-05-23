@@ -14,12 +14,12 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="button.Controller">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="33.0" layoutY="14.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
       
-                          <Button fx:id="do_it" layoutX="225.0" layoutY="410.0" mnemonicParsing="false" text="%calculate" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="281.0" />
+                          <Button fx:id="do_it" layoutX="225.0" layoutY="410.0" mnemonicParsing="false" text="%calculate" />
       
-                          <ComboBox fx:id="bd_month" layoutX="267.0" layoutY="147.0" prefHeight="31.0" prefWidth="103.0" AnchorPane.leftAnchor="267.0" AnchorPane.rightAnchor="230.0">
+                          <ComboBox fx:id="bd_month" layoutX="267.0" layoutY="147.0" prefHeight="31.0" prefWidth="103.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1" />
@@ -38,7 +38,7 @@
                   </items>
               </ComboBox>
       
-                          <ComboBox fx:id="bd_day" layoutX="161.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.leftAnchor="161.0">
+                          <ComboBox fx:id="bd_day" layoutX="161.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1" />
@@ -75,7 +75,7 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <ComboBox fx:id="bd_year" layoutX="378.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.rightAnchor="128.0">
+              <ComboBox fx:id="bd_year" layoutX="378.0" layoutY="147.0" prefHeight="31.0" prefWidth="94.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1900" />
@@ -198,7 +198,7 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <ComboBox fx:id="month" layoutX="270.0" layoutY="284.0" prefHeight="31.0" prefWidth="103.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="227.0">
+              <ComboBox fx:id="month" layoutX="270.0" layoutY="284.0" prefHeight="31.0" prefWidth="103.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1" />
@@ -216,7 +216,7 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <ComboBox fx:id="day" layoutX="161.0" layoutY="285.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.leftAnchor="161.0">
+              <ComboBox fx:id="day" layoutX="161.0" layoutY="285.0" prefHeight="31.0" prefWidth="94.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1" />
@@ -253,7 +253,7 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <ComboBox fx:id="year" layoutX="378.0" layoutY="285.0" maxHeight="50.0" prefHeight="31.0" prefWidth="94.0" AnchorPane.rightAnchor="128.0">
+              <ComboBox fx:id="year" layoutX="378.0" layoutY="285.0" maxHeight="50.0" prefHeight="31.0" prefWidth="94.0">
                   <items>
                       <FXCollections fx:factory="observableArrayList">
                           <String fx:value="1900" />
@@ -476,12 +476,12 @@
                       </FXCollections>
                   </items>
               </ComboBox>
-              <Label layoutX="133.0" layoutY="82.0" text="%birthday" AnchorPane.leftAnchor="133.0" />
-              <Label layoutX="133.0" layoutY="224.0" text="%day" AnchorPane.leftAnchor="133.0" />
-              <Button fx:id="signIn" layoutX="459.0" layoutY="21.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="%login" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="21.0" />
-              <Button fx:id="registr" layoutX="391.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="209.0" text="%registr" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="67.0" />
+              <Label layoutX="133.0" layoutY="82.0" text="%birthday" />
+              <Label layoutX="133.0" layoutY="224.0" text="%date" AnchorPane.leftAnchor="133.0" />
+              <Button fx:id="signIn" layoutX="452.0" layoutY="30.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="87.0" text="%login" />
+              <Button fx:id="registr" layoutX="364.0" layoutY="67.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="176.0" text="%registr" />
             <Label fx:id="error" layoutX="255.0" layoutY="346.0" />
-            <Button fx:id="today" layoutX="223.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="94.0" text="%today" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="283.0" />
+            <Button fx:id="today" layoutX="223.0" layoutY="341.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="94.0" text="%today" />
           </children>
       
       </AnchorPane>

@@ -23,10 +23,10 @@ public class DataBaseTest {
     @Test
     public void test() throws SQLException, ClassNotFoundException {
 
-        u.login = "Veron505";
+        u.login = "Veron503";
         u.password = "12345";
-        u.birthday = "04-02-1996";
-        u.date = "23-04-2016";
+        u.birthday = "04.02.1996";
+        u.date = "23.04.2016";
 
         d.Connect();
         d.Add_user(u);
@@ -34,12 +34,12 @@ public class DataBaseTest {
 
         Assert.assertTrue("Пользователь не добавился", d.HasLogin(u));
         Assert.assertEquals("Пароль добавился неправильно", u.password, "12345");
-        Assert.assertEquals("Дата рождения добавилась неправильно", u.birthday, "04-02-1996");
-        Assert.assertEquals("Дата последнего захода добавилась неправильно", u.date, "23-04-2016");
+        Assert.assertEquals("Дата рождения добавилась неправильно", u.birthday, "04.02.1996");
+        Assert.assertEquals("Дата последнего захода добавилась неправильно", u.date, "23.04.2016");
 
-        d.Change_data_last_call(u, "10-02-2012");
+        d.Change_data_last_call(u, "10.02.2012");
         d.Get_user_data(u);
-        Assert.assertEquals("Дата последнего захода не изменилась", u.date, "10-02-2012");
+        Assert.assertEquals("Дата последнего захода не изменилась", u.date, "10.02.2012");
         d.Disconnect();
     }
 }

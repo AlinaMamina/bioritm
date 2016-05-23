@@ -75,7 +75,7 @@ public class ControllerRegistration implements Initializable {
 
     }
 
-    public void setClass(Main main, Stage stage, Conversion conversion,ResourceBundle rb) {
+    public void setClass(Main main, Stage stage, Conversion conversion, ResourceBundle rb) {
         this.main = main;
         this.dialogStage = stage;
         this.conversion = conversion;

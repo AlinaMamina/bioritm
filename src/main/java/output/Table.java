@@ -1,8 +1,5 @@
 package output;
 
-
-import java.util.GregorianCalendar;
-
 public class Table {
     private String data;
     private String result;

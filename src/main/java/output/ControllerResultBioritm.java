@@ -55,7 +55,6 @@ public class ControllerResultBioritm implements Initializable {
     private ResourceBundle rb;
 
 
-
     public void initialize(URL url, ResourceBundle rb) {
 
         do_it.setOnAction(event -> {
@@ -80,20 +79,19 @@ public class ControllerResultBioritm implements Initializable {
         List<String> x = new ArrayList<>();
         List<Integer> period = new ArrayList<>();
         GregorianCalendar[] data = new GregorianCalendar[1];
-        data[0]= new GregorianCalendar();
+        data[0] = new GregorianCalendar();
 
-        data[0].set(bioritm.getData()[0].get(Calendar.YEAR), bioritm.getData()[0].get(Calendar.MONTH),bioritm.getData()[0].get(Calendar.DAY_OF_MONTH));
+        data[0].set(bioritm.getData()[0].get(Calendar.YEAR), bioritm.getData()[0].get(Calendar.MONTH), bioritm.getData()[0].get(Calendar.DAY_OF_MONTH));
         int p = bioritm.getPeriod();
 
         x_area.setLabel(rb.getString("_date"));
 
-        for (int i = 0; i < 30; i++)
-        {
+        for (int i = 0; i < 30; i++) {
 
             String[] str = conversion.dataToString(data, 1);
             x.add(i, str[0]);
             data[0].add(Calendar.DATE, 1);
-            period.add(i, p+i);
+            period.add(i, p + i);
         }
 
 
@@ -110,10 +108,10 @@ public class ControllerResultBioritm implements Initializable {
         for (Integer i : period) {
             period.indexOf(i);
 
-            series1.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc1.apply(i)));
-            series2.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc2.apply(i)));
-            series3.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc3.apply(i)));
-            series4.getData().add(new XYChart.Data( x.get(period.indexOf(i)), calc4.apply(i)));
+            series1.getData().add(new XYChart.Data(x.get(period.indexOf(i)), calc1.apply(i)));
+            series2.getData().add(new XYChart.Data(x.get(period.indexOf(i)), calc2.apply(i)));
+            series3.getData().add(new XYChart.Data(x.get(period.indexOf(i)), calc3.apply(i)));
+            series4.getData().add(new XYChart.Data(x.get(period.indexOf(i)), calc4.apply(i)));
         }
 
         series1.setName(rb.getString("phys"));
@@ -121,14 +119,13 @@ public class ControllerResultBioritm implements Initializable {
         series3.setName(rb.getString("intel"));
         series4.setName(rb.getString("all"));
 
-        grafik.getData().addAll(series1,series2,series3,series4);
+        grafik.getData().addAll(series1, series2, series3, series4);
 
 
     }
 
 
-
-    public void setFields (Conversion conversion,BaseButton baseButton,Main main,ResourceBundle rb) {
+    public void setFields(Conversion conversion, BaseButton baseButton, Main main, ResourceBundle rb) {
         this.conversion = conversion;
         this.baseButton = baseButton;
         this.main = main;
@@ -145,11 +142,11 @@ public class ControllerResultBioritm implements Initializable {
     }
 
     private void setInfo(Double[][] result) {
-        final String[] info_p = {rb.getString("info_p_good"),rb.getString("info_p_norm"),
+        final String[] info_p = {rb.getString("info_p_good"), rb.getString("info_p_norm"),
                 rb.getString("info_p_bad")};
-        final String[] info_e = {rb.getString("info_e_good"),rb.getString("info_e_norm"),
+        final String[] info_e = {rb.getString("info_e_good"), rb.getString("info_e_norm"),
                 rb.getString("info_e_bad")};
-        final String[] info_i = {rb.getString("info_i_good"),rb.getString("info_i_norm"),
+        final String[] info_i = {rb.getString("info_i_good"), rb.getString("info_i_norm"),
                 rb.getString("info_i_bad")};
 
         if (result[0][0] >= 40)

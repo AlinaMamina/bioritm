@@ -1,20 +1,15 @@
 package button;
 
-import basis.BaseButton;
-import calculation.CalcBiorithms;
 import calculation.Conversion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import basis.Main;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 

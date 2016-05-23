@@ -4,28 +4,33 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="output.ControllerTable">
-    <children>
-        <ScrollPane prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <content>
-                <AnchorPane prefHeight="600.0" prefWidth="600.0">
-                    <children>
-                        <TableView fx:id="table" layoutX="101.0" prefHeight="428.0" prefWidth="416.0">
-                            <columns>
-                                <TableColumn fx:id="day" prefWidth="110.0" text="%day" />
-                                <TableColumn fx:id="result" prefWidth="305.0" text="%result" />
-                            </columns>
-                        </TableView>
-                        <Label layoutX="101.0" layoutY="465.0" prefHeight="29.0" prefWidth="347.0" text="%best_p" />
-                        <Label layoutX="101.0" layoutY="502.0" prefHeight="21.0" prefWidth="346.0" text="%best_e" />
-                        <Label layoutX="101.0" layoutY="531.0" prefHeight="21.0" prefWidth="348.0" text="%best_i" />
-                        <Label fx:id="phys" layoutX="449.0" layoutY="469.0" prefHeight="21.0" prefWidth="80.0" text="10.02.2016" />
-                        <Label fx:id="emotion" layoutX="449.0" layoutY="502.0" text="12.02.2016" />
-                        <Label fx:id="intel" layoutX="449.0" layoutY="531.0" text="25.02.2016" />
-                        <Button fx:id="back" layoutX="14.0" layoutY="526.0" mnemonicParsing="false" text="%back" />
-                    </children>
-                </AnchorPane>
-            </content>
-        </ScrollPane>
-    </children>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="output.ControllerTable">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+              <ScrollPane prefHeight="600.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <content>
+                      <AnchorPane prefHeight="600.0" prefWidth="600.0">
+                          <children>
+                              <TableView fx:id="table" layoutX="101.0" prefHeight="428.0" prefWidth="416.0">
+                                  <columns>
+                                      <TableColumn fx:id="day" prefWidth="110.0" text="%day" />
+                                      <TableColumn fx:id="result" prefWidth="305.0" text="%result" />
+                                  </columns>
+                              </TableView>
+                              <Label layoutX="101.0" layoutY="465.0" prefHeight="29.0" prefWidth="347.0" text="%best_p" />
+                              <Label layoutX="101.0" layoutY="502.0" prefHeight="21.0" prefWidth="346.0" text="%best_e" />
+                              <Label layoutX="101.0" layoutY="531.0" prefHeight="21.0" prefWidth="348.0" text="%best_i" />
+                              <Label fx:id="phys" layoutX="449.0" layoutY="469.0" prefHeight="21.0" prefWidth="80.0" text="10.02.2016" />
+                              <Label fx:id="emotion" layoutX="449.0" layoutY="502.0" text="12.02.2016" />
+                              <Label fx:id="intel" layoutX="449.0" layoutY="531.0" text="25.02.2016" />
+                              <Button fx:id="back" layoutX="14.0" layoutY="526.0" mnemonicParsing="false" text="%back" />
+                          </children>
+                      </AnchorPane>
+                  </content>
+              </ScrollPane>
+          </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>

@@ -4,7 +4,6 @@ import calculation.Conversion;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import basis.Main;
 import javafx.scene.control.Label;
@@ -14,9 +13,7 @@ import java.net.URL;
 import java.util.GregorianCalendar;
 import java.util.ResourceBundle;
 
-/**
- * Created by 123 on 10.04.2016.
- */
+
 public class ControllerCopatibility implements Initializable {
     @FXML
     private Button do_it;
@@ -39,17 +36,13 @@ public class ControllerCopatibility implements Initializable {
     private ResourceBundle rb;
 
     public void initialize(URL url, ResourceBundle rb) {
-
         do_it.setOnAction(event -> result());
-
-
     }
 
     private void result() {
         try {
             GregorianCalendar bd1 = conversion.toCalendar(bd_day1.getValue(), bd_month1.getValue(), bd_year1.getValue());
             GregorianCalendar bd2 = conversion.toCalendar(bd_day2.getValue(), bd_month2.getValue(), bd_year2.getValue());
-
 
             main.showResultCopatibility(bd1, bd2);
         } catch (IllegalArgumentException e) {
@@ -63,7 +56,7 @@ public class ControllerCopatibility implements Initializable {
 
     }
 
-    public void setFields(Main main,Conversion conversion,ResourceBundle rb) {
+    public void setFields(Main main, Conversion conversion, ResourceBundle rb) {
         this.main = main;
         this.conversion = conversion;
         this.rb = rb;
